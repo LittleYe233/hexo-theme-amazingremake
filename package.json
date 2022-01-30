@@ -1,34 +1,9 @@
 {
-  "_from": "hexo-theme-amazing@^2.0.0",
-  "_id": "hexo-theme-amazing@2.0.0",
-  "_inBundle": false,
-  "_integrity": "sha512-8u6l4FCVR4/Yo6066nuHPec5TmkuD9G1Pgyu3Djhi+T6/T5bEIgiAUwIjyD3xXgqQY3i8CKSB7AdISOFVosOzA==",
-  "_location": "/hexo-theme-amazing",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "range",
-    "registry": true,
-    "raw": "hexo-theme-amazing@^2.0.0",
-    "name": "hexo-theme-amazing",
-    "escapedName": "hexo-theme-amazing",
-    "rawSpec": "^2.0.0",
-    "saveSpec": null,
-    "fetchSpec": "^2.0.0"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/hexo-theme-amazing/-/hexo-theme-amazing-2.0.0.tgz",
-  "_shasum": "9f96ee5c948ab11f77dfe420464e08229184eb35",
-  "_spec": "hexo-theme-amazing@^2.0.0",
-  "_where": "/opt/blog/blog5",
   "author": {
-    "name": "removeif",
-    "email": "removeif@users.noreply.github.com"
+    "name": "LittleYe233"
   },
   "bugs": {
-    "url": "https://github.com/removeif/hexo-theme-amazing/issues"
+    "url": "https://github.com/LittleYe233/hexo-theme-amazingremake/issues"
   },
   "bundleDependencies": false,
   "dependencies": {
@@ -40,7 +15,7 @@
     "semver": ">=5.0.0"
   },
   "deprecated": false,
-  "description": "A simple, delicate, and modern theme for Hexo",
+  "description": "A remake version of a simple, delicate, and modern theme for Hexo",
   "devDependencies": {
     "bulma-stylus": "0.8.0",
     "eslint": "^7.6.0",
@@ -57,14 +32,15 @@
   "engines": {
     "node": ">=10.13.0"
   },
-  "homepage": "https://github.com/removeif/hexo-theme-amazing",
+  "homepage": "https://github.com/LittleYe233/hexo-theme-amazingremake",
   "keywords": [
     "hexo",
     "theme",
-    "icarus"
+    "icarus",
+    "amazing"
   ],
   "license": "MIT",
-  "name": "hexo-theme-amazing",
+  "name": "hexo-theme-amazingremake",
   "peerDependencies": {
     "bulma-stylus": "0.8.0",
     "hexo": "^5.0.2",
@@ -76,10 +52,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/removeif/hexo-theme-amazing.git"
+    "url": "https://github.com/LittleYe233/hexo-theme-amazingremake.git"
   },
   "scripts": {
     "lint": "eslint --ext .js --ext .jsx --ext .json ."
   },
-  "version": "2.0.0"
+  "version": "0.1.0"
 }
