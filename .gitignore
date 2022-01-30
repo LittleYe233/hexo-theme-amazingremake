@@ -116,3 +116,5 @@ yarn.lock
 .DS_Store
 db.json
 public/
+package-lock.json
+*.code-workspace
