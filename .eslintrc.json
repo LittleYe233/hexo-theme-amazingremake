@@ -63,6 +63,9 @@
       {
         "allowReferrer": true
       }
+    ],
+    "linebreak-style": [
+      "off"
     ]
   }
 }
