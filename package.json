@@ -57,5 +57,5 @@
   "scripts": {
     "lint": "eslint --ext .js --ext .jsx --ext .json ."
   },
-  "version": "0.1.0"
+  "version": "0.2.0"
 }
