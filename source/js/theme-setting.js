@@ -2,35 +2,45 @@
 // https://removeif.github.io/
 
 function isNightFun() {
-    var isNightTemp = localStorage.getExpire('night');
+    let isNightTemp = localStorage.getExpire('night');
 
     // 第一次进来判断是白天还是晚上
-    if (isNightTemp == null || isNightTemp == undefined) {
-        if (isNightRange("19:00", "23:59") || isNightRange("00:00", "07:00")) {
+    if (isNightTemp === null || isNightTemp === undefined) {
+        if (isNightRange('19:00', '23:59') || isNightRange('00:00', '07:00')) {
             isNightTemp = 'true';
         } else {
             isNightTemp = 'false';
         }
-        localStorage.setExpire("night", isNightTemp, expireTime1H);
+        localStorage.setExpire('night', isNightTemp, expireTime1H);
     }
     return isNightTemp;
 }
 
-var isNight=isNightFun();
+let isNight = isNightFun();
 // 参考自 https://www.imaegoo.com/
-var nightNav;
-var nightIcon;
+let nightNav,
+    nightIcon,
+    divAplayer;
 
 function applyNight(value) {
-    if (value == 'true') {
-        document.body.className += ' night'
+    divAplayer = document.querySelectorAll('.aplayer');
+    if (value === 'true') {
+        document.body.className += ' night';
+        for (const elem of divAplayer) {
+            elem.classList.remove('aplayer-theme-light');
+            elem.classList.add('aplayer-theme-dark');
+        }
         if (nightIcon) {
-            nightIcon.className = nightIcon.className.replace(/ fa-moon/g, '') + ' fa-lightbulb'
+            nightIcon.className = nightIcon.className.replace(/ fa-moon/g, '') + ' fa-lightbulb';
         }
     } else {
-        document.body.className = document.body.className.replace(/ night/g, '')
+        document.body.className = document.body.className.replace(/ night/g, '');
+        for (const elem of divAplayer) {
+            elem.classList.remove('aplayer-theme-dark');
+            elem.classList.add('aplayer-theme-light');
+        }
         if (nightIcon) {
-            nightIcon.className = nightIcon.className.replace(/ fa-lightbulb/g, '') + ' fa-moon'
+            nightIcon.className = nightIcon.className.replace(/ fa-lightbulb/g, '') + ' fa-moon';
         }
     }
 }
@@ -43,27 +53,32 @@ function findNightIcon() {
     } else {
         nightNav.addEventListener('click', switchNight);
         if (isNight) {
-            nightIcon.className = nightIcon.className.replace(/ fa-moon/g, '') + ' fa-lightbulb'
+            nightIcon.className = nightIcon.className.replace(/ fa-moon/g, '') + ' fa-lightbulb';
         } else {
-            nightIcon.className = nightIcon.className.replace(/ fa-lightbulb/g, '') + ' fa-moon'
+            nightIcon.className = nightIcon.className.replace(/ fa-lightbulb/g, '') + ' fa-moon';
         }
     }
 }
 
 function switchNight() {
 
-    if (isNight == 'false') {
+    if (isNight === 'false') {
         isNight = 'true';
     } else {
         isNight = 'false';
     }
-    
+
     applyNight(isNight);
     localStorage.setExpire('night', isNight, expireTime1H);
-    if(typeof loadUtterances == 'function'){
+    if (typeof loadUtterances === 'function') {
         loadUtterances();
     }
 }
 
 findNightIcon();
-applyNight(isNight);
+applyNight(isNight); // first process with loaded contents
+
+// then force to process with the rest contents (like APlayer elements)
+window.addEventListener('load', event => {
+    applyNight(isNight);
+});

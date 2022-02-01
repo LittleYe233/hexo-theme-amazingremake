@@ -33,9 +33,9 @@ class Footer extends Component {
             footerLogo = siteTitle;
         }
 
-        var footerWebsiteTimeTemp =  footerWebsiteTime+"";
-        var timeArr = footerWebsiteTimeTemp.split("|");
-        var timeJs = `function createTime(time) {
+        const footerWebsiteTimeTemp = footerWebsiteTime + '';
+        const timeArr = footerWebsiteTimeTemp.split('|');
+        const timeJs = `function createTime(time) {
             var n = new Date(time);
             now.setTime(now.getTime() + 250),
                 days = (now - n) / 1e3 / 60 / 60 / 24,
@@ -61,10 +61,10 @@ class Footer extends Component {
                         </a>
                         <p class="size-small">
                             <span dangerouslySetInnerHTML={{ __html: `&copy; ${siteYear} ${author || siteTitle}` }}></span>
-                            &nbsp;&nbsp;Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
-                                href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> & <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a>&nbsp;
+                            &nbsp;&nbsp;Powered by <a href="https://hexo.io/" target="_blank" rel="noreferrer">Hexo</a> & <a
+                                href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noreferrer">Icarus</a> & <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank" rel="noreferrer">Amazing</a>&nbsp;
                             <br />
-                            {registeredNo ? <span>&copy; <a href="http://www.beian.miit.gov.cn/" target="_blank">{registeredNo}</a><br /></span> : null}
+                            {registeredNo ? <span>&copy; <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noreferrer">{registeredNo}</a><br /></span> : null}
                             {footerCopyrightDsec ? <span dangerouslySetInnerHTML={{ __html: footerCopyrightDsec }}></span> : null}
                             {websiteStartTime ? <span>
                                 <span id="statistic-times">loading...</span>
@@ -85,11 +85,11 @@ class Footer extends Component {
                                 </p>;
                             })}
                         </div> : null}
-                        {side_music_netease_id ?
-                            <div class="sideMusic">
-                                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" />
+                        {side_music_netease_id
+                            ? <div class="sideMusic">
+                                <link rel="stylesheet" href={my_cdn(url_for('/css/APlayer.min.css'))} />
                                 <script src={my_cdn(url_for('/js/APlayer.min.js'))}></script>
-                                <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+                                <script src={my_cdn(url_for('/js/Meting.min.js'))}></script>
                                 <meting-js style="width: auto;height: 2000px;"
                                     server="netease"
                                     type="playlist"
@@ -114,7 +114,7 @@ class Footer extends Component {
 
 module.exports = cacheComponent(Footer, 'common.footer', props => {
     const { config, helper } = props;
-    const { url_for, _p, date, my_cdn,__ } = helper;
+    const { url_for, _p, date, my_cdn, __ } = helper;
     const { logo, title, author, footer, plugins, side_music_netease_id, website_start_time, footer_copyright_dsec, footer_registered_no, busuanzi_only_count, footer_website_time } = config;
 
     const links = {};
@@ -142,7 +142,7 @@ module.exports = cacheComponent(Footer, 'common.footer', props => {
         author,
         links,
         side_music_netease_id,
-        showVisitorCounter: plugins && plugins.busuanzi === true && (busuanzi_only_count != undefined && !busuanzi_only_count),
+        showVisitorCounter: plugins && plugins.busuanzi === true && (busuanzi_only_count !== undefined && !busuanzi_only_count),
         visitorCounterTitle: _p('plugin.footer_visitor', '<span id="busuanzi_value_site_uv">99+</span>', '<span id="busuanzi_value_site_pv">99+</span>'),
         footerWebsiteTime: __('plugin.footer_website_time')
     };
