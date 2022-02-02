@@ -371,7 +371,7 @@ providers:
 
 
 footer_copyright_dsec: '© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br />'  # footer 版权说明 可自由配置
-website_start_time: 2018/11/11 00:00:00  # 网站运行开始时间,不填不显示
+website_start_time: ''  # 网站运行开始时间,不填不显示
 footer_registered_no: ''  # 备案号
 side_music_netease_id: ''  # 侧边栏网易云歌单id
 busuanzi_only_count: false  # 当上面plugins中busuanzi: true时，此配置busuanzi_only_count为true时，网站不显示不蒜子统计数据，但是会每次统计。false时显示统计数据。
