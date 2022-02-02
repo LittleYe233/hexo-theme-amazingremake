@@ -20,6 +20,12 @@
 npm install hexo-theme-amazingremake --save
 ```
 
+再修改博客根目录下 `_config.yml` 中的 `theme` 键值：
+
+```yml
+theme: amazingremake
+```
+
 ### 原主题
 
 若要使用本代码库安装原主题，则需在博客目录中克隆已回退到 [7fea32f](https://github.com/LittleYe233/hexo-theme-amazingremake/tree/7fea32fa88ef79b3ca0c697ed55ee3213f72bb2b) 处的 `master` 分支，其他步骤按照原代码库的 [README.md](https://github.com/LittleYe233/hexo-theme-amazingremake/blob/7fea32fa88ef79b3ca0c697ed55ee3213f72bb2b/README.md) 即可：
@@ -47,7 +53,7 @@ git reset --hard 7fea32fa88ef79b3ca0c697ed55ee3213f72bb2b
 - `_config.yml` ： Hexo 的**默认**配置文件；
 - `node_modules/hexo-theme-amazingremake/_config.yml` ： 本主题的**默认**配置文件。
 
-以上配置文件的优先级由上而下依次递减，对于同字段**非空**配置项，优先级高的配置文件中的内容会覆盖优先级低的。
+以上配置文件的优先级由上而下依次递减，对于同键名**非空**配置项，优先级高的配置文件中的内容会覆盖优先级低的。
 
 为避免各配置文件间的配置相互混淆，可以直接复制 `_config.yml` 的内容到 `_config.amazingremake.yml` ，此后所有配置的更改均在后者中完成。
 
