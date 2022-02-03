@@ -4,6 +4,17 @@
 
 考虑到一些版本控制系统可能会依照惯例读取本文件的一些区块 (section) ，文件的部分标识 (如“Unreleased”) 仍使用英文。
 
+## [0.2.1] - 2022-02-02
+
+### Changed
+
+- [[25fb961](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/25fb961162366ccd805a58ed6070a76f0e2e5b69)] 重新初始化主题配置文件。
+
+### Fixed
+
+- [[ea79856](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/ea798562e1522c565be0f16c03cef64ddb5c718d)] 修复 Live2D 立绘被文章版权信息框遮盖的问题；
+- [[56cf143](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/56cf14367d13424a7c4d856ba53b6be3909d9713)] 更新文档。
+
 ## [0.2.0] - 2022-02-02
 
 本更新对上一版本的初始化进行部分修正。
