@@ -4,11 +4,13 @@
 
 本主题 (Amazing-Remake) 为 Hexo 主题 [amazing](https://github.com/removeif/hexo-theme-amazing) 的重制，主题标识名为 `amazingremake` 。考虑到原主题暂停更新时间过长，本主题将在原主题基础上做出增减和更改，并对文档做出改进。
 
-## 历史
+## 更新
 
 本代码库系于 2022-01-26 (UTC+8) 由 [removeif/hexo-theme-amazing](https://github.com/removeif/hexo-theme-amazing) 代码库导入至本账号而被创建，在本代码库中的对应提交为 [master 分支的 7fea32f](https://github.com/LittleYe233/hexo-theme-amazingremake/tree/7fea32fa88ef79b3ca0c697ed55ee3213f72bb2b) 。
 
 本代码库将在上述提交处创建 `dev` 分支，用以后续的开发，并在必要时合并入 `master` 分支。目前本代码库在 GitHub 上的默认分支为 `dev` 分支。
+
+本代码库的更新日志为 [CHANGELOG.md](CHANGELOG.md) 。
 
 ## 安装
 
@@ -17,8 +19,10 @@
 可以使用 `npm` 命令安装主题：
 
 ```bash
-npm install hexo-theme-amazingremake --save
+npm install hexo-theme-amazingremake hexo-renderer-inferno@^0.1.3 --save
 ```
+
+*更多有关 `hexo-renderer-inferno` 需要添加至博客根目录下 `package.json` 的信息，参见 [ppoffice/hexo-theme-icarus 的 issue#855](https://github.com/ppoffice/hexo-theme-icarus/issues/855#issuecomment-812881200)* 。
 
 再修改博客根目录下 `_config.yml` 中的 `theme` 键值：
 
