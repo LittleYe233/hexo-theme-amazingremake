@@ -15,7 +15,7 @@
     "semver": ">=5.0.0"
   },
   "deprecated": false,
-  "description": "A new remake of the remake version of a simple, delicate, and modern theme for Hexo",
+  "description": "A new remake version of a simple, delicate, and modern theme for Hexo",
   "devDependencies": {
     "bulma-stylus": "0.8.0",
     "eslint": "^7.6.0",
