@@ -38,7 +38,7 @@ module.exports = class extends Component {
         const isPost = page.layout == 'post';
 
         const isGitalk = comment !== undefined && comment.type !== undefined && comment.type == 'gitalk';
-        const showComment = true;//comment !== undefined && comment.type !== undefined && (comment.type == 'gitalk' || comment.type == 'valine');
+        const showComment = comment.enabled; //comment !== undefined && comment.type !== undefined && (comment.type == 'gitalk' || comment.type == 'valine');
         var id = _get_md5(_get_path_end_str(page.path, page.uniqueId, page.title));
         var md5Id = id;
         if (!isGitalk) {

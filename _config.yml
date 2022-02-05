@@ -10,6 +10,7 @@ logo: ''
 head:
   # URL or path to the website's icon
   favicon: ''
+
   # Open Graph metadata
   # https://hexo.io/docs/helpers.html#open-graph
   open_graph:
@@ -46,6 +47,7 @@ head:
     fb_admins: 
     # Facebook App ID
     fb_app_id: 
+
   # Structured data of the page
   # https://developers.google.com/search/docs/guides/intro-structured-data
   structured_data:
@@ -64,11 +66,13 @@ head:
     # Page images (optional)
     # You should leave this blank for most of the time
     image: 
+
   # Additional HTML meta tags in an array
   meta:
     # Meta tag specified in <attribute>=<value> style
     # E.g., name=theme-color;content=#123456 => <meta name="theme-color" content="#123456">
     - ''
+
   # URL or path to the website's RSS atom.xml
   rss: 
 
@@ -87,6 +91,7 @@ navbar:
     # Self-talking: /self-talking
     # Music: /music
     # Media: /media
+
   # Links to be shown on the right of the navigation bar
   links:
     Download on GitHub:
@@ -118,8 +123,10 @@ article:
     clipboard: true
     # Default folding status of the code blocks. Can be "", "folded", "unfolded"
     fold: unfolded
+
   # Whether to show estimated article reading time
   readtime: true
+
   # Article licensing block
   licenses:
     Creative Commons:
@@ -140,18 +147,19 @@ search:
 # Comment plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
 comment:
+  enabled: false
   type: gitalk
-  # language: zh-CN               # Localization language key, en, zh-CN and zh-TW are currently available.
-  # owner: ''                     # (required) GitHub user name
-  # repo: ''                      # (required) GitHub repository name
-  # client_id: ''                 # (required) OAuth application client id
-  # client_secret: ''             # (required) OAuth application client secret
-  # admin: ['']
-  # create_issue_manually: true
-  # distraction_free_mode: false
-  # has_hot_recommend: true       # 是否有热门推荐
-  # has_latest_comment: true      # 是否有最新评论
-  # proxy: ''                     # 解决登录后403问题
+  language: zh-CN               # Localization language key, en, zh-CN and zh-TW are currently available.
+  owner: ''                     # (required) GitHub user name
+  repo: ''                      # (required) GitHub repository name
+  client_id: ''                 # (required) OAuth application client id
+  client_secret: ''             # (required) OAuth application client secret
+  admin: ['']
+  create_issue_manually: true
+  distraction_free_mode: false
+  has_hot_recommend: true       # 是否有热门推荐
+  has_latest_comment: true      # 是否有最新评论
+  proxy: ''                     # 解决登录后403问题
 
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
@@ -200,6 +208,7 @@ sidebar:
   left:
     # Whether the sidebar sticks to the top when page scrolls
     sticky: true
+
   # Right sidebar configurations
   right:
     # Whether the sidebar sticks to the top when page scrolls
@@ -215,6 +224,7 @@ widgets:
     type: toc
     # Select show index
     index: false
+
   # Profile widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
@@ -252,6 +262,7 @@ widgets:
       #   icon: fas fa-rss
       #   url: 
     has_hitokoto: true
+
   # Recommendation links widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
@@ -260,31 +271,37 @@ widgets:
     # Names and URLs of the sites
     links:
       Hexo: 'https://hexo.io'
+
   # Latest comment widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
     position: right
     type: latest_comment
+
   # Recent posts widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
     position: right
     type: recent_posts
+
   # Categories widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
     position: right
     type: categories
+
   # Archives widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
     position: right
     type: archives
+
   # Tags widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
     position: right
     type: tags
+
   # Google FeedBurner email subscription widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
@@ -294,6 +311,7 @@ widgets:
     description: 
     # Feedburner ID
     feedburner_id: ''
+
   # Google AdSense unit configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
@@ -357,6 +375,7 @@ plugins:
   outdated_browser: false
   # Show a progress bar at top of the page on page loading
   progressbar: true
+
 # CDN provider settings
 # https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/
 providers:
@@ -368,7 +387,6 @@ providers:
   iconcdn: loli
   # https://cdn.jsdelivr.net/gh/removeif/removeif.github.io@v1.0.6/json_data/record.json, cdn前缀，对于hexo new page 页面中引用的资源文件不生效，需要手动改，如friend友链页中引用的资源
   # my_cdn_pre: https://cdn.jsdelivr.net/gh/removeif/removeif-demo@v1.0.8/ #https://cdn.jsdelivr.net/gh/removeif/removeif.github.io@v2.2.1
-
 
 footer_copyright_dsec: '© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br />'  # footer 版权说明 可自由配置
 website_start_time: ''  # 网站运行开始时间,不填不显示

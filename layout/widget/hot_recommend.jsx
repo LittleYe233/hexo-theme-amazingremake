@@ -6,14 +6,14 @@ class HotRecommend extends Component {
         const { isReturn, title, tip } = this.props;
 
         if (!isReturn) {
-            return null
+            return null;
         }
 
         return <div class="card widget">
             <div class="card-content">
                 <h3 class="menu-label">{title}</h3><span id="index_hot_div">{tip}</span>
             </div>
-        </div>
+        </div>;
     }
 }
 
@@ -22,9 +22,8 @@ module.exports = cacheComponent(HotRecommend, 'widget.hotrecommend', props => {
     const { __ } = helper;
     const { comment } = config;
 
-    if (comment == undefined || comment.type == undefined || comment.type == 'undefined' || comment.type != 'gitalk'
-        || !comment.has_hot_recommend) {
-        return null
+    if (comment === undefined || comment.type === undefined || comment.type === 'undefined' || comment.type !== 'gitalk' || comment.enabled !== true || !comment.has_hot_recommend) {
+        return null;
     }
 
     return {

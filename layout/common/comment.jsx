@@ -8,18 +8,18 @@ module.exports = class extends Component {
         const {__} = helper;
         const {comment} = config;
 
-        if (!comment || typeof comment.type !== 'string') {
+        if (!comment || typeof comment.type !== 'string' || comment.enabled !== true) {
             return null;
         }
-        const isGitalk = comment.type == 'gitalk';
-        const commentColsed = !page.comments;
+        const isGitalk = comment.type === 'gitalk';
+        const commentClosed = !page.comments;
 
         return <div class="card">
             <div class="card-content">
-                {!commentColsed ? <div class="title is-5">{__('article.comments')}</div> : null}
+                {!commentClosed ? <div class="title is-5">{__('article.comments')}</div> : null}
                 {(() => {
                     try {
-                        if (isGitalk || !commentColsed) {
+                        if (isGitalk || !commentClosed) {
                             let Comment = view.require('comment/' + comment.type);
                             Comment = Comment.Cacheable ? Comment.Cacheable : Comment;
                             return <Comment config={config} page={page} helper={helper} comment={comment}/>;
