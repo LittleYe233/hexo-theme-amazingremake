@@ -18,7 +18,7 @@ class Valine extends Component {
             path,
             lang,
             enableQQ = true,
-            requiredFields,
+            requiredFields
         } = this.props;
         if (!appId || !appKey) {
             return <div class="notification is-danger">
@@ -52,8 +52,10 @@ class Valine extends Component {
     }
 }
 
+// eslint-disable-next-line no-multi-assign
 module.exports = Valine.Cacheable = cacheComponent(Valine, 'comment.valine', props => {
-    const { comment, page } = props;
+    const { comment, page, helper } = props;
+    const { __ } = helper;
 
     return {
         appId: comment.app_id,
@@ -68,8 +70,8 @@ module.exports = Valine.Cacheable = cacheComponent(Valine, 'comment.valine', pro
         visitor: comment.visitor,
         highlight: comment.highlight,
         recordIp: comment.record_ip,
-        path: "/" + page.path,
+        path: '/' + page.path,
         lang: comment.lang || __('article.comments_language'),
-        requiredFields: comment.required_fields,
+        requiredFields: comment.required_fields
     };
 });

@@ -15,16 +15,16 @@ class AdSenseX extends Component {
                         <br/> */}
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
-                         data-ad-layout="in-article"
-                         data-ad-format="fluid"
-                         data-ad-client={clientId}
-                         data-ad-slot={slotId}></ins>
+                        style="display:block; text-align:center;"
+                        data-ad-layout="in-article"
+                        data-ad-format="fluid"
+                        data-ad-client={clientId}
+                        data-ad-slot={slotId}></ins>
                     <script
                         dangerouslySetInnerHTML={{__html: '(adsbygoogle = window.adsbygoogle || []).push({});'}}></script>
                 </div>
             </div>
-        </div>
+        </div>;
     }
 }
 

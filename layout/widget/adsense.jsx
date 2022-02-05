@@ -15,20 +15,21 @@ class AdSense extends Component {
                     <br/>
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"
-                         data-ad-client={clientId}
-                         data-ad-slot={slotId}>
+                        style="display:block"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"
+                        data-ad-client={clientId}
+                        data-ad-slot={slotId}>
                     </ins>
                     <script
                         dangerouslySetInnerHTML={{__html: '(adsbygoogle = window.adsbygoogle || []).push({});'}}></script>
                 </div>
             </div>
-        </div>
+        </div>;
     }
 }
 
+// eslint-disable-next-line no-multi-assign
 module.exports = AdSense.Cacheable = cacheComponent(AdSense, 'widget.adsense', props => {
     const {helper, config} = props;
     const {adsense_client_id, adsense_slot_id} = config;

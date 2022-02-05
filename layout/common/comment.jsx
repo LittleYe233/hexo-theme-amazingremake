@@ -1,5 +1,5 @@
 const logger = require('hexo-log')();
-const {Component} = require('inferno');
+const { Component, Fragment } = require('inferno');
 const view = require('hexo-component-inferno/lib/core/view');
 
 module.exports = class extends Component {
@@ -23,15 +23,15 @@ module.exports = class extends Component {
                             let Comment = view.require('comment/' + comment.type);
                             Comment = Comment.Cacheable ? Comment.Cacheable : Comment;
                             return <Comment config={config} page={page} helper={helper} comment={comment}/>;
-                        } else {
-                            return <Fragment>
-                                <div id="comment-container">
-                                    <div class="gt-container">
-                                        <h3 class="menu-label has-text-centered">{__('article.comments_closed')}</h3>
-                                    </div>
-                                </div>
-                            </Fragment>;
                         }
+                        return <Fragment>
+                            <div id="comment-container">
+                                <div class="gt-container">
+                                    <h3 class="menu-label has-text-centered">{__('article.comments_closed')}</h3>
+                                </div>
+                            </div>
+                        </Fragment>;
+
                     } catch (e) {
                         logger.w(`Icarus cannot load comment "${comment.type}"`);
                         return null;

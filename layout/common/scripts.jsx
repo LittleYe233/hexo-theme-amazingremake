@@ -7,23 +7,23 @@ module.exports = class extends Component {
         const { url_for, cdn, my_cdn } = helper;
         const { external_link, article, comment, has_banner } = config;
         const language = page.lang || page.language || config.language || 'en';
-        const hasComment = comment != undefined && comment.type != undefined && (comment.type == 'gitalk' || comment.type == 'valine');
-        var hasHotRecommend = false;
-        var hasBanner = has_banner != undefined && has_banner;
-        var appKey;
-        var appId;
-        var userName;
-        var userRepo;
-        var isValine;
+        const hasComment = comment !== undefined && comment.type !== undefined && (comment.type === 'gitalk' || comment.type === 'valine');
+        let hasHotRecommend = false;
+        const hasBanner = has_banner !== undefined && has_banner;
+        let appKey,
+            appId,
+            userName,
+            userRepo,
+            isValine;
 
-        if (comment != undefined && comment.type != undefined && comment.type == 'gitalk') {
-            hasHotRecommend = comment.has_hot_recommend != undefined && comment.has_hot_recommend;
+        if (comment !== undefined && comment.type !== undefined && comment.type === 'gitalk') {
+            hasHotRecommend = comment.has_hot_recommend !== undefined && comment.has_hot_recommend;
             appId = comment.client_id;
             appKey = comment.client_secret;
-            userName = comment.owner;;
+            userName = comment.owner;
             userRepo = comment.repo;
             isValine = false;
-        } else if (comment != undefined && comment.type != undefined && comment.type == 'valine') {
+        } else if (comment !== undefined && comment.type !== undefined && comment.type === 'valine') {
             appId = comment.app_id;
             appKey = comment.app_key;
             userName = comment.owner;
@@ -31,10 +31,11 @@ module.exports = class extends Component {
         }
 
         const js = `$.getScript('${my_cdn(url_for('/js/comment-issue-data.js'))}',function(){loadIssueData('${appId}','${appKey}','${userName}','${userRepo}',${isValine});})`;
-        let externalLink;
+        let externalLink = null;
         if (typeof external_link === 'boolean') {
             externalLink = { enable: external_link, exclude: [] };
         } else {
+            // eslint-disable-next-line no-unused-vars
             externalLink = {
                 enable: typeof external_link.enable === 'boolean' ? external_link.enable : true,
                 exclude: external_link.exclude || []
@@ -69,7 +70,7 @@ module.exports = class extends Component {
             <script src={my_cdn(url_for('/js/column.js'))}></script>
             <Plugins site={site} config={config} page={page} helper={helper} head={false} />
             <script src={my_cdn(url_for('/js/main.js'))} defer></script>
-            {(hasHotRecommend || !hasBanner) ? null : <script src={my_cdn(url_for('/js/banner.js'))}></script>}
+            {hasHotRecommend || !hasBanner ? null : <script src={my_cdn(url_for('/js/banner.js'))}></script>}
             {hasComment ? <script dangerouslySetInnerHTML={{ __html: js }}></script> : null}
         </Fragment>;
     }

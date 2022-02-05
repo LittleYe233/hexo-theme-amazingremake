@@ -14,50 +14,50 @@ module.exports = class extends Component {
         const { __, my_cdn, url_for } = helper;
 
         // 默认不加载公式，文中头部开启mathJax:true才加载
-        var isMath = page.mathJax != undefined && page.mathJax;
+        const isMath = page.mathJax !== undefined && page.mathJax;
         const language = page.lang || page.language || config.language;
         const columnCount = Widgets.getColumnCount(config.widgets);
-        const hasComment = comment != undefined && comment.type != undefined && (comment.type == 'gitalk' || comment.type == 'valine')
+        const hasComment = comment !== undefined && comment.type !== undefined && (comment.type === 'gitalk' || comment.type === 'valine')
             && (comment.has_hot_recommend || comment.has_latest_comment);
-        var appKey;
-        var appId;
-        var userName;
-        var userRepo;
-        var isValine;
+        let appKey,
+            appId,
+            userName,
+            userRepo,
+            isValine;
 
-        if (comment != undefined && comment.type != undefined && comment.type == 'gitalk') {
+        if (comment !== undefined && comment.type !== undefined && comment.type === 'gitalk') {
             appId = comment.client_id;
             appKey = comment.client_secret;
-            userName = comment.owner;;
+            userName = comment.owner;
             userRepo = comment.repo;
             isValine = false;
-        } else if (comment != undefined && comment.type != undefined && comment.type == 'valine') {
+        } else if (comment !== undefined && comment.type !== undefined && comment.type === 'valine') {
             appId = comment.app_id;
             appKey = comment.app_key;
             userName = comment.owner;
             isValine = true;
         }
-        var hotTitle = __('widget.hot_recommend');
-        var hotTip = __('widget.hot_recommend_tip');
+        const hotTitle = __('widget.hot_recommend');
+        const hotTip = __('widget.hot_recommend_tip');
 
         // =====index hot_recommend
-        var hotRecommendStr =
-            `<div class="card widget">
+        let hotRecommendStr
+            = `<div class="card widget">
             <div class="card-content">
                 <h3 class="menu-label">${hotTitle}</h3><span id="index_hot_div">${hotTip}</span>
             </div>
         </div>`;
 
         // =====index banner
-        var bannerStr =
-            `<div class="card widget">
+        const bannerStr
+            = `<div class="card widget">
             <div class="card-content1 card-image">
                 <span id="banner"><div class="card-content ">Banner ${hotTip}</div></span>
             </div>
         </div>`;
-        
+
         // mathjax support 使用方法 md文章头部开启mathJax: true，md文章中公式格式：$$f(x) = a_1x^n + a_2x^{n-1} + a_3x^{n-2}$$
-        var mathJaxJs = `function loadMathJax() { //加载mathjax
+        const mathJaxJs = `function loadMathJax() { //加载mathjax
             $.getScript("//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML", function () {
                 MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] } });
                 var math = document.getElementsByClassName("entry-content")[0];
@@ -65,7 +65,7 @@ module.exports = class extends Component {
             });
         };loadMathJax();`;
 
-        var pjaxJs = `var pjax = new Pjax({
+        const pjaxJs = `var pjax = new Pjax({
             elements: "a",//代表点击链接就更新
             selectors: [  //代表要更新的节点
                 ".section",
@@ -108,26 +108,26 @@ module.exports = class extends Component {
             }
         });`;
 
-        if (comment == undefined || comment.type == undefined
-            || comment.type != 'gitalk'
-            || comment.has_hot_recommend == undefined
+        if (comment === undefined || comment.type === undefined
+            || comment.type !== 'gitalk'
+            || comment.has_hot_recommend === undefined
             || !comment.has_hot_recommend) {
             hotRecommendStr = '';
         }
 
-        var indexTopData = hotRecommendStr;
+        let indexTopData = hotRecommendStr;
 
-        const hasBanner = has_banner != undefined && has_banner;
+        const hasBanner = has_banner !== undefined && has_banner;
 
-        if (indexTopData == '' && hasBanner) {
+        if (indexTopData === '' && hasBanner) {
             indexTopData = bannerStr;
         }
 
-        if (page.path != 'index.html') {
+        if (page.path !== 'index.html') {
             indexTopData = '';
         }
 
-        let isPageOrPost = page.layout == 'page' || page.layout == 'post';
+        const isPageOrPost = page.layout === 'page' || page.layout === 'post';
         return <html lang={language ? language.substr(0, 2) : ''}>
             <Head site={site} config={config} helper={helper} page={page} />
             <body className={`is-${columnCount}-column has-navbar-fixed-top`}>
@@ -141,7 +141,7 @@ module.exports = class extends Component {
                                 'order-2': true,
                                 'column-main': true,
                                 'is-12': columnCount === 1,
-                                'is-8-tablet is-8-desktop is-6-widescreen': (page.layout != 'post' && page.layout != 'page') && columnCount === 3,
+                                'is-8-tablet is-8-desktop is-6-widescreen': (page.layout !== 'post' && page.layout !== 'page') && columnCount === 3,
                                 'is-8-tablet is-8-desktop is-9-widescreen': columnCount === 2 || page.layout === 'post'
                             })} dangerouslySetInnerHTML={{__html: indexTopData + body}}></div>
                             <Widgets site={site} config={config} helper={helper} page={page} position={'left'}/>

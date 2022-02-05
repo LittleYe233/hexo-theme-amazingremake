@@ -4,6 +4,7 @@
  */
 const { Component } = require('inferno');
 const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
+
 /**
  * Utterances comment JSX component.
  *
@@ -89,6 +90,7 @@ class Utteranc extends Component {
  *         theme: "******"
  *     }} />
  */
+// eslint-disable-next-line no-multi-assign
 module.exports = Utteranc.Cacheable = cacheComponent(Utteranc, 'comment.utteranc', props => {
     const { repo, issue_term, issue_number, label, theme } = props.comment;
 

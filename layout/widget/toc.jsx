@@ -45,8 +45,8 @@ function getToc(content) {
     const toc = {};
     const levels = [0, 0, 0];
     const tocObj = getTocObj(content, {min_depth: 1, max_depth: 6});
-    const minLevel = Math.min(...tocObj.map((item) => item.level));
-    tocObj.forEach((item) => {
+    const minLevel = Math.min(...tocObj.map(item => item.level));
+    tocObj.forEach(item => {
         const {text, id} = item;
         const level = item.level - minLevel;
 
@@ -91,23 +91,23 @@ class Toc extends Component {
         let result;
 
         const keys = Object.keys(toc)
-            .filter((key) => !['id', 'index', 'text'].includes(key))
-            .map((key) => parseInt(key, 10))
+            .filter(key => !['id', 'index', 'text'].includes(key))
+            .map(key => parseInt(key, 10))
             .sort((a, b) => a - b);
 
         if (keys.length > 0) {
-            result = <ul class="menu-list">{keys.map((i) => this.renderToc(toc[i], showIndex))}</ul>;
+            result = <ul class="menu-list">{keys.map(i => this.renderToc(toc[i], showIndex))}</ul>;
         }
         if ('id' in toc && 'index' in toc && 'text' in toc) {
-            result = (
-                <li>
+            result
+                = <li>
                     <a class="is-flex is-mobile" href={'#' + toc.id}>
                         {showIndex && <span class="mr-2">{toc.index}</span>}
                         <span>{unescapeHTML(toc.text)}</span>
                     </a>
                     {result}
                 </li>
-            );
+            ;
         }
         return result;
     }
@@ -119,9 +119,9 @@ class Toc extends Component {
             return null;
         }
 
-        const css =
-            '.menu-list > li > a.is-active + .menu-list { display: block; }' +
-            '.menu-list > li > a + .menu-list { display: none; }';
+        const css
+            = '.menu-list > li > a.is-active + .menu-list { display: block; }'
+            + '.menu-list > li > a + .menu-list { display: none; }';
 
         return (
             <div class="card widget" id="toc" data-type="toc">
@@ -154,7 +154,7 @@ class Toc extends Component {
  *         url_for: function() {...}
  *     }} /> />
  */
-Toc.Cacheable = cacheComponent(Toc, 'widget.toc', (props) => {
+Toc.Cacheable = cacheComponent(Toc, 'widget.toc', props => {
     const {config, page, widget, helper} = props;
     const {layout, content, encrypt, origin} = page;
     const {index} = widget;
@@ -167,7 +167,7 @@ Toc.Cacheable = cacheComponent(Toc, 'widget.toc', (props) => {
         title: helper._p('widget.catalogue', Infinity),
         showIndex: index !== false,
         content: encrypt ? origin : content,
-        jsUrl: helper.url_for('/js/toc.js'),
+        jsUrl: helper.url_for('/js/toc.js')
     };
 });
 

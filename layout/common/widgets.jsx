@@ -19,25 +19,24 @@ function formatWidgets(widgets) {
     return result;
 }
 
-function clone(Obj){
-    var buf;
-    if(Obj instanceof Array){
-        buf=[];
-        var i=Obj.length;
-        while(i--){
-            buf[i]=clone(Obj[i]);
+function clone(Obj) {
+    let buf;
+    if (Obj instanceof Array) {
+        buf = [];
+        let i = Obj.length;
+        while (i--) {
+            buf[i] = clone(Obj[i]);
+        }
+        return buf;
+    } else if (Obj instanceof Object) {
+        buf = {};
+        for (const k in Obj) {
+            buf[k] = clone(Obj[k]);
         }
         return buf;
     }
-    else if(Obj instanceof Object){
-        buf={};
-        for(var k in Obj){
-            buf[k]=clone(Obj[k]);
-        }
-        return buf;
-    }else{
-        return Obj;
-    }
+    return Obj;
+
 }
 
 function formatAllWidgets(widgets) {
@@ -45,8 +44,8 @@ function formatAllWidgets(widgets) {
     if (Array.isArray(widgets)) {
         widgets.filter(widget => typeof widget === 'object').forEach(widget => {
             if ('position' in widget && (widget.position === 'left' || widget.position === 'right')) {
-                var widgetNew = clone(widget);
-                if(widgetNew.position === 'right'){
+                const widgetNew = clone(widget);
+                if (widgetNew.position === 'right') {
                     widgetNew.position = 'left';
                 }
                 if (!(widgetNew.position in result)) {
@@ -101,7 +100,7 @@ function isColumnSticky(config, position) {
 class Widgets extends Component {
     render() {
         const { site, config, helper, page, position } = this.props;
-        const widgets = (page.layout == 'post' || page.layout == 'page') ? formatAllWidgets(config.widgets)[position] || [] : formatWidgets(config.widgets)[position] || [];
+        const widgets = page.layout === 'post' || page.layout === 'page' ? formatAllWidgets(config.widgets)[position] || [] : formatWidgets(config.widgets)[position] || [];
         const columnCount = getColumnCount(config.widgets);
 
         if (!widgets.length) {
@@ -131,7 +130,7 @@ class Widgets extends Component {
                 return null;
             })}
 
-            {/*此处放开可以在非桌面设备上并且非文章情况下展示right widget,否则不展示*/}
+            {/* 此处放开可以在非桌面设备上并且非文章情况下展示right widget,否则不展示*/}
             {position === 'left' && hasColumn(config.widgets, 'right') ? <div class={classname({
                 'column-right-shadow': true,
                 'is-hidden-widescreen': true,

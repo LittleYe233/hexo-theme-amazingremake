@@ -1,4 +1,3 @@
-const crypto = require('crypto');
 const {Component, Fragment} = require('inferno');
 const {cacheComponent} = require('hexo-component-inferno/lib/util/cache');
 
@@ -21,7 +20,7 @@ class Gitalk extends Component {
             enableHotKey,
             jsUrl,
             cssUrl,
-            isLocked,
+            isLocked
         } = this.props;
 
         if (!id || !repo || !owner || !admin || !clientId || !clientSecret) {
@@ -58,6 +57,7 @@ class Gitalk extends Component {
     }
 }
 
+// eslint-disable-next-line no-multi-assign
 module.exports = Gitalk.Cacheable = cacheComponent(Gitalk, 'comment.gitalk', props => {
     const {helper, comment} = props;
     const {my_cdn, url_for, __, _get_md5, _get_path_end_str} = helper;
@@ -65,7 +65,7 @@ module.exports = Gitalk.Cacheable = cacheComponent(Gitalk, 'comment.gitalk', pro
     // FIXME: config name change
     const id = _get_md5(_get_path_end_str(props.page.path, props.page.uniqueId, props.page.title));
 
-    let canComments = props.page.comments;
+    const canComments = props.page.comments;
 
     return {
         language: comment.language || __('article.comments_language'),
@@ -84,6 +84,6 @@ module.exports = Gitalk.Cacheable = cacheComponent(Gitalk, 'comment.gitalk', pro
         enableHotKey: comment.enable_hotkey,
         cssUrl: helper.cdn('gitalk', '1.6.0', 'dist/gitalk.css'),
         jsUrl: my_cdn(url_for('/js/gitalk.min.js')),
-        isLocked: !canComments,
+        isLocked: !canComments
     };
 });

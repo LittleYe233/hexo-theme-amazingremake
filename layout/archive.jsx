@@ -10,28 +10,28 @@ module.exports = class extends Component {
 
         const language = page.lang || page.language || config.language;
 
-        var nameMap = language.indexOf('zh') >= 0 ? 'cn' : 'en';
-        var titleText = language.indexOf('zh') >= 0 ? '文章贡献' : 'Post Calendar';
+        const nameMap = language.indexOf('zh') >= 0 ? 'cn' : 'en';
+        const titleText = language.indexOf('zh') >= 0 ? '文章贡献' : 'Post Calendar';
 
         // ======================= calculate range.
-        var startDate = moment().subtract(0.70, 'years');
-        var endDate = moment();
-        var rangeArr = '["' + startDate.format('YYYY-MM-DD') + '", "' + endDate.format('YYYY-MM-DD') + '"]';
+        const startDate = moment().subtract(0.70, 'years');
+        const endDate = moment();
+        const rangeArr = '["' + startDate.format('YYYY-MM-DD') + '", "' + endDate.format('YYYY-MM-DD') + '"]';
 
         // post and count map.
-        var dateMap = new Map();
-        site.posts.forEach(function (post) {
-            var date1 = post.date.format('YYYY-MM-DD');
-            var count = dateMap.get(date1);
-            dateMap.set(date1, count == null || count == undefined ? 1 : count + 1);
+        const dateMap = new Map();
+        site.posts.forEach(post => {
+            const date1 = post.date.format('YYYY-MM-DD');
+            const count = dateMap.get(date1);
+            dateMap.set(date1, count == null || count === undefined ? 1 : count + 1);
         });
 
         // loop the data for the current year, generating the number of post per day
-        var i = 0;
-        var datePosts = '[';
-        var dayTime = 3600 * 24 * 1000;
-        for (var time = startDate; time <= endDate; time += dayTime) {
-            var date1 = moment(time).format('YYYY-MM-DD');
+        let i = 0;
+        let datePosts = '[';
+        const dayTime = 3600 * 24 * 1000;
+        for (let time = startDate; time <= endDate; time += dayTime) {
+            const date1 = moment(time).format('YYYY-MM-DD');
             datePosts = (i === 0 ? datePosts + '["' : datePosts + ', ["') + date1 + '", '
                 + (dateMap.has(date1) ? dateMap.get(date1) : 0) + ']';
             i++;
@@ -42,27 +42,27 @@ module.exports = class extends Component {
         function renderArticleList(posts, year, month = null) {
             const time = moment([page.year, page.month ? page.month - 1 : null].filter(i => i !== null));
             return <div>
-                    <h3 class="tag is-primary">{month === null ? year : time.locale(language).format('MMMM YYYY')}</h3>
-                    <div class="timeline">
-                        {posts.map(post => {
-                            const categories = post.categories.map(category => ({
-                                url: url_for(category.path),
-                                name: category.name
-                            }));
-                            return <ArticleMedia
-                                url={url_for(post.link || post.path)}
-                                title={post.title}
-                                date={date(post.date)}
-                                dateXml={date_xml(post.date)}
-                                categories={categories}
-                                thumbnail={post.thumbnail ? url_for(post.thumbnail) : null} />;
-                        })}
-                    </div>
-                    <br/>
-                </div>;
+                <h3 class="tag is-primary">{month === null ? year : time.locale(language).format('MMMM YYYY')}</h3>
+                <div class="timeline">
+                    {posts.map(post => {
+                        const categories = post.categories.map(category => ({
+                            url: url_for(category.path),
+                            name: category.name
+                        }));
+                        return <ArticleMedia
+                            url={url_for(post.link || post.path)}
+                            title={post.title}
+                            date={date(post.date)}
+                            dateXml={date_xml(post.date)}
+                            categories={categories}
+                            thumbnail={post.thumbnail ? url_for(post.thumbnail) : null} />;
+                    })}
+                </div>
+                <br/>
+            </div>;
         }
 
-        const echartJsUrl = my_cdn(url_for("/js/echarts.min.js"));
+        const echartJsUrl = my_cdn(url_for('/js/echarts.min.js'));
         const js = `function loadEchart(){
             if($("#post-calendar").length <= 0){
                 return;
@@ -156,7 +156,7 @@ module.exports = class extends Component {
                     <div style="post-calendar-pre">
                         <div id="post-calendar"></div>
                     </div>
-                    <script type="text/javascript" src={my_cdn(url_for("/js/echarts.min.js"))}></script>
+                    <script type="text/javascript" src={my_cdn(url_for('/js/echarts.min.js'))}></script>
                     <script type="text/javascript" dangerouslySetInnerHTML={{__html: js}}></script>
                     {articleList}
                 </div>
