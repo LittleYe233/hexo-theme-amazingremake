@@ -4,16 +4,30 @@
 
 考虑到一些版本控制系统可能会依照惯例读取本文件的一些区块 (section) ，文件的部分标识 (如“Unreleased”) 仍使用英文。
 
+## [0.3.0] - 2022-02-06
+
+### Added
+
+- [[a72b886](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/a72b886831351849f1ee769b47476e0f12f4a708)] 配置文件 `comment` 配置块增加启停控制选项；
+- [[84ffc7c](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/84ffc7c14f1264a29e3ce5c8ff88228bd6534547)] 配置文件 `donates` 配置块增加启停控制选项；
+- [[6a93424](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/6a93424406a870ea8da1fce830d0f0db1e8ed45d)] 配置文件 `share` 配置块增加启停控制选项。
+
+### Changed
+
+- [[312cb3e](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/312cb3eab431abefc73d1b91e384fbd62e51f0c8)] 更新文档；
+- [[44674f8](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/44674f8832b5e8d68aa36a060f4167201e98ad40)] 修正 NPM 包描述；
+- [[4bf3fdf](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/4bf3fdf32f484f39214894f533253d9a19f3ef24)] 修改英文翻译。
+
 ## [0.2.1] - 2022-02-02
 
 ### Changed
 
-- [[25fb961](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/25fb961162366ccd805a58ed6070a76f0e2e5b69)] 重新初始化主题配置文件。
+- [[25fb961](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/25fb961162366ccd805a58ed6070a76f0e2e5b69)] 重新初始化主题配置文件；
+- [[56cf143](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/56cf14367d13424a7c4d856ba53b6be3909d9713)] 更新文档。
 
 ### Fixed
 
-- [[ea79856](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/ea798562e1522c565be0f16c03cef64ddb5c718d)] 修复 Live2D 立绘被文章版权信息框遮盖的问题；
-- [[56cf143](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/56cf14367d13424a7c4d856ba53b6be3909d9713)] 更新文档。
+- [[ea79856](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/ea798562e1522c565be0f16c03cef64ddb5c718d)] 修复 Live2D 立绘被文章版权信息框遮盖的问题。
 
 ## [0.2.0] - 2022-02-02
 
