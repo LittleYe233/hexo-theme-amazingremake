@@ -157,9 +157,9 @@ comment:
   admin: ['']
   create_issue_manually: true
   distraction_free_mode: false
-  has_hot_recommend: true       # 是否有热门推荐
-  has_latest_comment: true      # 是否有最新评论
-  proxy: ''                     # 解决登录后403问题
+  has_hot_recommended: true     # Whether to show Hot Recommended
+  has_latest_comments: true     # Whether to show Latest Comments
+  proxy: ''                     # Solve HTTP 403 error after logged in
 
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
@@ -168,13 +168,11 @@ donates:
   entries:
     # Alipay donate button configurations
     -
-      # Donation entry name
       type: alipay
       # Qrcode image URL
       qrcode: ''
     # WeChat donate button configurations
     -
-      # Donation entry name
       type: wechat
       # Qrcode image URL
       qrcode: ''
@@ -183,12 +181,12 @@ donates:
       type: buymeacoffee
       # URL to the "Buy me a coffee" page
       url: ''
-     # Patreon donate button configurations
+    # Patreon donate button configurations
     -
       type: patreon
       # URL to the Patreon page
       url: ''
-     # Paypal donate button configurations
+    # Paypal donate button configurations
     -
       type: paypal
       # Paypal business ID or email address
@@ -370,13 +368,26 @@ providers:
   fontcdn: loli
   # Name or URL of the fontawesome icon font CDN provider
   iconcdn: loli
-  # https://cdn.jsdelivr.net/gh/removeif/removeif.github.io@v1.0.6/json_data/record.json, cdn前缀，对于hexo new page 页面中引用的资源文件不生效，需要手动改，如friend友链页中引用的资源
-  # my_cdn_pre: https://cdn.jsdelivr.net/gh/removeif/removeif-demo@v1.0.8/ #https://cdn.jsdelivr.net/gh/removeif/removeif.github.io@v2.2.1
+  # URL prefix of assets from CDN
+  # my_cdn_pre: https://cdn.jsdelivr.net/gh/removeif/removeif-demo@v1.0.8/
 
-footer_copyright_dsec: '© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br />'  # footer 版权说明 可自由配置
-website_start_time: ''  # 网站运行开始时间,不填不显示
-footer_registered_no: ''  # 备案号
-side_music_netease_id: ''  # 侧边栏网易云歌单id
-busuanzi_only_count: false  # 当上面plugins中busuanzi: true时，此配置busuanzi_only_count为true时，网站不显示不蒜子统计数据，但是会每次统计。false时显示统计数据。
-has_live_2D_switch: true  # live2D开关 true-开 false-关
-use_pjax: true  # 是否pjax
+# HTML code of copyright information in footer
+footer_copyright_dsec: '© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br />'
+# Start time of this website in footer (omitted to be invisible)
+# NOTE: The value will be passed in the constructor of the ``Date``
+# object. Read the documentation on Date() constructor
+# (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date) for further information.
+# Recommended form: yyyy/mm/dd hh:mm:ss or yyyy-mm-ddThh:mm:ss
+# i.e. 1995/12/17 13:24:00 or 1995-12-17T13:24:00
+website_start_time: ''
+# ICP licensing number in footer
+footer_registered_no: ''
+# NetEase Cloud Music playlist ID in footer (at the bottom of the webpage)
+side_music_netease_id: ''
+# (required: plugins.busuanzi: true) only calculate the statistics
+# from busuanzi without showing it when the value is true
+busuanzi_only_count: false
+# Whether to show the Live2D figure
+has_live_2D_switch: true
+# Whether to activate pjax plugin
+use_pjax: true
