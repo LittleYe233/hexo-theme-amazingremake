@@ -5,7 +5,6 @@ const Donates = require('./donates');
 const Comment = require('./comment');
 const ArticleLicensing = require('../misc/article_licensing');
 const RecommendPosts = require('../widget/recommend_post');
-const AdsenseX = require('../widget/ads_x');
 
 /**
  * Get the word count of text.
@@ -21,8 +20,8 @@ function getWordCount(content) {
 
 module.exports = class extends Component {
     render() {
-        const { config, helper, page, index, mysite, indexAt } = this.props;
-        const { article, plugins, index_show_tags_categories, comment, comment_head_has_ad, article_head_has_ad, index_zero_position_ad, index_ad_positions } = config;
+        const { config, helper, page, index, mysite } = this.props;
+        const { article, plugins, index_show_tags_categories, comment } = config;
         const { url_for, date, date_xml, __, _p, _get_md5, _get_path_end_str } = helper;
 
         const language = page.lang || page.language || config.language || 'en';
@@ -48,8 +47,6 @@ module.exports = class extends Component {
         }
 
         return <Fragment>
-            {indexAt !== undefined & indexAt === 0 ? <AdsenseX config={config} display={index_zero_position_ad}/> : null}
-            {!index ? <AdsenseX config={config} display={article_head_has_ad}/> : null}
             {/* Main content */}
             <div class="card">
                 {/* Thumbnail */}
@@ -186,7 +183,6 @@ module.exports = class extends Component {
                     {!index ? <Share config={config} page={page} helper={helper} /> : null}
                 </article>
             </div>
-            {index && index_ad_positions && (index_ad_positions.indexOf(indexAt) > -1) ? <AdsenseX config={config} display={index_ad_positions !== undefined}/> : null}
             {/* Donate button */}
             {!index ? <Donates config={config} helper={helper} /> : null}
             {/* Post navigation */}
@@ -204,7 +200,6 @@ module.exports = class extends Component {
                     </a>
                 </div> : null}
             </nav> : null}
-            {!index ? <AdsenseX config={config} display={comment_head_has_ad}/> : null}
             {/* Comment */}
             {!index ? <Comment config={config} page={page} helper={helper} /> : null}
         </Fragment>;

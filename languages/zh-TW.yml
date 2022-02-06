@@ -23,7 +23,6 @@ widget:
     catalogue: '文章目錄'
     subscribe_email: '訂閱 Email'
     subscribe: '訂閱'
-    adsense: '廣告'
 article:
     created_at: '%s發表'
     updated_at: '%s更新'

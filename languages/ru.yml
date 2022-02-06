@@ -23,7 +23,6 @@ widget:
     catalogue: 'Каталог'
     subscribe_email: 'Подпишитесь на обновления'
     subscribe: 'Подписывайся'
-    adsense: 'Рекламное объявление'
 article:
     created_at: 'Опубликовано&nbsp;%s'
     updated_at: 'Обновлено&nbsp;%s'

@@ -23,7 +23,6 @@ widget:
     catalogue: 'Catalogue'
     subscribe_email: 'Subscribe for updates'
     subscribe: 'Subscribe'
-    adsense: 'Advertisement'
     recommend_posts: 'Recommend Posts'
     related_posts: 'Related Posts'
     latest_comment: 'Latest Comments'

@@ -23,7 +23,6 @@ widget:
     catalogue: 'Mục lục'
     subscribe_email: 'Theo dõi các bản cập nhật'
     subscribe: 'Theo dõi'
-    adsense: 'Quảng cáo'
 article:
     created_at: 'Đã đăng&nbsp;%s'
     updated_at: 'Đã cập nhật&nbsp;%s'

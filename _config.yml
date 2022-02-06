@@ -315,24 +315,6 @@ widgets:
     # Feedburner ID
     feedburner_id: ''
 
-  # Google AdSense unit configurations
-  -
-    # Where should the widget be placed, left sidebar or right sidebar
-    position: right
-    type: adsense
-
-# AdSense client ID
-adsense_client_id: ''
-# AdSense AD unit ID
-adsense_slot_id: ''
-# article head ad
-article_head_has_ad: true
-# comment head ad
-comment_head_has_ad: true
-# other ad
-index_zero_position_ad: true
-index_ad_positions: 2,5,9 # 首页adsense放置广告的位置，尽量少配置些，多了有可能不显示。一位的时候，加个逗号，如1,或者1,5,9
-
 # Plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/
 plugins:

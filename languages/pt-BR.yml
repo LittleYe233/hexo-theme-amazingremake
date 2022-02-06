@@ -23,7 +23,6 @@ widget:
     catalogue: 'Catálogo'
     subscribe_email: 'Subscrição de atualizações'
     subscribe: 'Se inscrever'
-    adsense: 'Anúncio'
 article:
     created_at: 'Postado&nbsp;%s'
     updated_at: 'Atualizado&nbsp;%s'

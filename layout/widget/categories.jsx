@@ -1,22 +1,23 @@
-const { Component } = require('inferno');
+const { Component, Fragment } = require('inferno');
 const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
-const AdsenseX = require('./ads_x');
 
 class Categories extends Component {
 
 
-    renderList(categories, showCount,count,isPage) {
-        return categories.map(category => {return (count.n++ < 10 || isPage) ?<li>
-            <a class="level is-mobile is-marginless" href={category.url}>
-                <span class="level-start">
-                    <span class="level-item">{category.name}</span>
-                </span>
-                {showCount ? <span class="level-end">
-                    <span class="level-item tag">{category.count}</span>
-                </span> : null}
-            </a>
-            {category.children.length ? <ul class="mr-0">{this.renderList(category.children, showCount,count,isPage)}</ul> : null}
-        </li>:null});
+    renderList(categories, showCount, count, isPage) {
+        return categories.map(category => {
+            return count.n++ < 10 || isPage ? <li>
+                <a class="level is-mobile is-marginless" href={category.url}>
+                    <span class="level-start">
+                        <span class="level-item">{category.name}</span>
+                    </span>
+                    {showCount ? <span class="level-end">
+                        <span class="level-item tag">{category.count}</span>
+                    </span> : null}
+                </a>
+                {category.children.length ? <ul class="mr-0">{this.renderList(category.children, showCount, count, isPage)}</ul> : null}
+            </li> : null;
+        });
     }
 
     render() {
@@ -27,32 +28,31 @@ class Categories extends Component {
             isPage,
             allUrl
         } = this.props;
-        var count={n: 0};
+        const count = {n: 0};
 
         return <Fragment>
-            {isPage ? <AdsenseX /> : null}
             <div class="card widget">
                 <div class="card-content">
                     <div class="menu">
                         <h3 class="menu-label">{title}</h3>
                         <ul class="menu-list">
-                            {this.renderList(categories, showCount,count,isPage)}
-                            {count.n >= 10 && !isPage ?
-                                <a className="level is-mobile is-marginless" href={allUrl}>
+                            {this.renderList(categories, showCount, count, isPage)}
+                            {count.n >= 10 && !isPage
+                                ? <a className="level is-mobile is-marginless" href={allUrl}>
                                     <span className="level-start">
-                                        <span className="level-item">查看全部>></span>
+                                        <span className="level-item">查看全部{'>>'}</span>
                                     </span>
                                 </a> : null
                             }
                         </ul>
                     </div>
                 </div>
-        </div>
-        {isPage ? <AdsenseX /> : null}
-        </Fragment>
+            </div>
+        </Fragment>;
     }
 }
 
+// eslint-disable-next-line no-multi-assign
 module.exports = Categories.Cacheable = cacheComponent(Categories, 'widget.categories', props => {
     // adapted from hexo/lib/plugins/helper/list_categories.js
     const {

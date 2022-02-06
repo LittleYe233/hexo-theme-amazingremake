@@ -38,12 +38,6 @@
                 "$ref": "/widget/subscribe_email.json"
             },
             {
-                "$ref": "/widget/adsense.json"
-            },
-            {
-                "$ref": "/widget/ads_x.json"
-            },
-            {
                 "$ref": "/widget/hot_recommend.json"
             },
             {

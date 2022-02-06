@@ -38,7 +38,6 @@ module.exports = class extends Component {
             article,
             highlight,
             variant = 'default',
-            adsense_client_id,
             has_live_2D_switch,
             global_gray,
             comment
@@ -85,11 +84,6 @@ module.exports = class extends Component {
             }
         } else {
             images = [url_for('/img/og_image.png')];
-        }
-
-        let adsenseClientId = null;
-        if (adsense_client_id) {
-            adsenseClientId = adsense_client_id;
         }
 
         let openGraphImages = images;
@@ -171,8 +165,6 @@ module.exports = class extends Component {
             <script src={my_cdn(url_for('/js/globalUtils.js'))}></script>
             <Plugins site={site} config={config} helper={helper} page={page} head={true} />
 
-            {adsenseClientId ? <script data-ad-client={adsenseClientId}
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script> : null}
             {hasLive2D ? <link rel="stylesheet" href={my_cdn(url_for('/live2d/waifu.css'))} /> : null}
             {hasLive2D ? <script type="text/javascript" async={true} src={my_cdn(url_for('/live2d/autoload.js'))}></script> : null}
             {isValineComment ? <script async="" referrerpolicy="no-referrer" src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script> : null}

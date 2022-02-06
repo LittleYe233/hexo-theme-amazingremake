@@ -23,7 +23,6 @@ widget:
     catalogue: 'Katalog'
     subscribe_email: 'Güncellemeler için abone olun'
     subscribe: 'Abone ol'
-    adsense: 'İlan'
 article:
     created_at: '%s&nbsp;yayınlandı'
     updated_at: '%s&nbsp;güncellendi'
