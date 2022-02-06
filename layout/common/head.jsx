@@ -36,7 +36,6 @@ module.exports = class extends Component {
             url,
             head = {},
             article,
-            highlight,
             variant = 'default',
             has_live_2D_switch,
             global_gray,
@@ -59,12 +58,13 @@ module.exports = class extends Component {
         };
 
         let hlTheme, images;
-        if (highlight && highlight.enable === false) {
+        if (typeof article === 'undefined' || typeof article.highlight === 'undefined' || typeof article.highlight.enabled !== 'boolean' || article.highlight.enabled === false) {
             hlTheme = null;
-        } else if (article && article.highlight && article.highlight.theme) {
-            hlTheme = article.highlight.theme;
         } else {
-            hlTheme = 'atom-one-light';
+            // NOTE: It uses a shorthand control expression, thus evaluating
+            // the actual passed-in value of highlight theme when it's not empty
+            // otherwise the default value following the OR operand.
+            hlTheme = article.highlight.theme || 'atom-one-light';
         }
 
         if (typeof page.og_image === 'string') {

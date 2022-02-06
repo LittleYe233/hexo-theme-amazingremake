@@ -1,6 +1,8 @@
+/* eslint-disable new-cap */
+/* eslint-disable no-undef */
 /* eslint-disable node/no-unsupported-features/node-builtins */
 function loadMainJs($, moment, ClipboardJS, config) {
-    $('.article img:not(".not-gallery-item")').each(function () {
+    $('.article img:not(".not-gallery-item")').each(function() {
         // wrap images with link and add caption if possible
         if ($(this).parent('a').length === 0) {
             $(this).wrap('<a class="gallery-item" href="' + $(this).attr('src') + '"></a>');
@@ -22,12 +24,12 @@ function loadMainJs($, moment, ClipboardJS, config) {
     }
 
     if (typeof moment === 'function') {
-        $('.article-meta time').each(function () {
+        $('.article-meta time').each(function() {
             $(this).text(moment($(this).attr('datetime')).fromNow());
         });
     }
 
-    $('.article > .content > table').each(function () {
+    $('.article > .content > table').each(function() {
         if ($(this).width() > $(this).parent().width()) {
             $(this).wrap('<div class="table-overflow"></div>');
         }
@@ -59,10 +61,12 @@ function loadMainJs($, moment, ClipboardJS, config) {
     $('figure.highlight table').wrap('<div class="highlight-body">');
     if (typeof config !== 'undefined'
         && typeof config.article !== 'undefined'
-        && typeof config.article.highlight !== 'undefined') {
+        && typeof config.article.highlight !== 'undefined'
+        && typeof config.article.highlight.enabled === 'boolean'
+        && config.article.highlight.enabled === true) {
 
         $('figure.highlight').addClass('hljs');
-        $('figure.highlight .code .line span').each(function () {
+        $('figure.highlight .code .line span').each(function() {
             const classes = $(this).attr('class').split(/\s+/);
             if (classes.length === 1) {
                 $(this).addClass('hljs-' + classes[0]);
@@ -74,7 +78,7 @@ function loadMainJs($, moment, ClipboardJS, config) {
         const clipboard = config.article.highlight.clipboard;
         const fold = config.article.highlight.fold.trim();
 
-        $('figure.highlight').each(function () {
+        $('figure.highlight').each(function() {
             if ($(this).find('figcaption').length) {
                 $(this).find('figcaption').addClass('level is-mobile');
                 $(this).find('figcaption').append('<div class="level-left">');
@@ -89,7 +93,7 @@ function loadMainJs($, moment, ClipboardJS, config) {
         });
 
         if (typeof ClipboardJS !== 'undefined' && clipboard) {
-            $('figure.highlight').each(function () {
+            $('figure.highlight').each(function() {
                 const id = 'code-' + Date.now() + (Math.random() * 1000 | 0);
                 const button = '<a href="javascript:;" class="copy" title="Copy" data-clipboard-target="#' + id + ' .code"><i class="fas fa-copy"></i></a>';
                 $(this).attr('id', id);
@@ -99,7 +103,7 @@ function loadMainJs($, moment, ClipboardJS, config) {
         }
 
         if (fold) {
-            $('figure.highlight').each(function () {
+            $('figure.highlight').each(function() {
                 if ($(this).find('figcaption').find('span').length > 0) {
                     const span = $(this).find('figcaption').find('span');
                     if (span[0].innerText.indexOf('>folded') > -1) {
@@ -113,7 +117,7 @@ function loadMainJs($, moment, ClipboardJS, config) {
                 toggleFold(this, fold === 'folded');
             });
 
-            $('figure.highlight figcaption .fold').click(function () {
+            $('figure.highlight figcaption .fold').click(function() {
                 const $code = $(this).closest('figure.highlight');
                 toggleFold($code.eq(0), !$code.hasClass('folded'));
             });
@@ -138,33 +142,35 @@ function loadMainJs($, moment, ClipboardJS, config) {
     }
 }
 
-function loadMathJax() { //加载mathjax
-    $.getScript("//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML", function () {
+// eslint-disable-next-line no-unused-vars
+function loadMathJax() { // 加载mathjax
+    $.getScript('//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML', () => {
         MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] } });
-        var math = document.getElementsByClassName("entry-content")[0];
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
+        const math = document.getElementsByClassName('entry-content')[0];
+        MathJax.Hub.Queue(['Typeset', MathJax.Hub, math]);
     });
 }
 
-$(document).ready(function () {
+$(document).ready(() => {
     loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+
     /* 添加背景色 */
-    var navbar = $(".is-fixed-top");
-    var navbar1 = $(".justify-content-start");
+    const navbar = $('.is-fixed-top');
+    const navbar1 = $('.justify-content-start');
     if (navbar.offset().top > 12) {
-        navbar.addClass("navbar-highlight");
-        navbar1.addClass("navbar-highlight");
+        navbar.addClass('navbar-highlight');
+        navbar1.addClass('navbar-highlight');
     } else {
-        navbar.removeClass("navbar-highlight");
-        navbar1.removeClass("navbar-highlight");
+        navbar.removeClass('navbar-highlight');
+        navbar1.removeClass('navbar-highlight');
     }
-    $(window).scroll(function () {
+    $(window).scroll(() => {
         if (navbar.offset().top > 12) {
-            navbar.addClass("navbar-highlight");
-            navbar1.addClass("navbar-highlight");
+            navbar.addClass('navbar-highlight');
+            navbar1.addClass('navbar-highlight');
         } else {
-            navbar.removeClass("navbar-highlight");
-            navbar1.removeClass("navbar-highlight");
+            navbar.removeClass('navbar-highlight');
+            navbar1.removeClass('navbar-highlight');
         }
     });
 });

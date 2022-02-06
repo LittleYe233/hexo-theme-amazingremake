@@ -42,9 +42,13 @@ module.exports = class extends Component {
             };
         }
 
+        let enabled = false;
         let fold = 'unfolded';
         let clipboard = true;
         if (article && article.highlight) {
+            if (typeof article.highlight.enabled === 'boolean') {
+                enabled = article.highlight.enabled;
+            }
             if (typeof article.highlight.clipboard !== 'undefined') {
                 clipboard = !!article.highlight.clipboard;
             }
@@ -56,6 +60,7 @@ module.exports = class extends Component {
         const embeddedConfig = `var IcarusThemeSettings = {
             article: {
                 highlight: {
+                    enabled: ${enabled},
                     clipboard: ${clipboard},
                     fold: '${fold}'
                 }
