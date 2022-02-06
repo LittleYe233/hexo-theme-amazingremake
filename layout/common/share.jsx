@@ -6,7 +6,7 @@ module.exports = class extends Component {
     render() {
         const { config, page, helper } = this.props;
         const { share } = config;
-        if (!share || typeof share.type !== 'string') {
+        if (!share || typeof share.enabled !== 'boolean' || share.enabled === false || typeof share.type !== 'string') {
             return null;
         }
 

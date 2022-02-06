@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "/share/sharejs.json",
+    "description": "Share plugin configurations\nhttps://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "const": "sharejs"
+        }
+    }
+}
