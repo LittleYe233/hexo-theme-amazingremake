@@ -4,6 +4,20 @@
 
 考虑到一些版本控制系统可能会依照惯例读取本文件的一些区块 (section) ，文件的部分标识 (如“Unreleased”) 仍使用英文。
 
+## [0.4.0] - 2022-02-06
+
+### Added
+
+- [[cf47b2b](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/cf47b2b98825e28a57e037134f4342ffcc9d501e)] 配置文件 `article.highlight` 配置块增加启停控制选项。
+
+### Removed
+
+- [[b34d0e9](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/b34d0e9713e813ea8a9e6022c841aa542efd2ae8)] 移除 Google AdSense 组件。
+
+### Changed
+
+- [[b34d0e9](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/b34d0e9713e813ea8a9e6022c841aa542efd2ae8)] 修改英文翻译。
+
 ## [0.3.0] - 2022-02-06
 
 ### Added
