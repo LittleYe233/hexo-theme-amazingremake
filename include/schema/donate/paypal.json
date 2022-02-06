@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "/donate/paypal.json",
+    "description": "Donate plugin configurations\nhttps://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "const": "paypal"
+        },
+        "business": {
+            "type": "string"
+        },
+        "currency_code": {
+            "type": "string"
+        }
+    }
+}

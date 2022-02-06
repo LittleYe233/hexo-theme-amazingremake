@@ -6,7 +6,11 @@ module.exports = class extends Component {
     render() {
         const { config, helper } = this.props;
         const { __ } = helper;
-        const { donates = [] } = config;
+        let { donates = {} } = config;
+        if (typeof donates.enabled !== 'boolean' || donates.enabled === false || typeof donates.entries === 'undefined') {
+            return null;
+        }
+        donates = donates.entries;
         if (!Array.isArray(donates) || !donates.length) {
             return null;
         }
