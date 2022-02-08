@@ -17,7 +17,7 @@ module.exports = class extends Component {
             isValine;
 
         if (comment !== undefined && comment.type !== undefined && comment.type === 'gitalk') {
-            hasHotRecommend = comment.has_hot_recommend !== undefined && comment.has_hot_recommend;
+            hasHotRecommend = comment.has_hot_recommended !== undefined && comment.has_hot_recommended;
             appId = comment.client_id;
             appKey = comment.client_secret;
             userName = comment.owner;

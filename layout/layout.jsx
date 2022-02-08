@@ -18,7 +18,7 @@ module.exports = class extends Component {
         const language = page.lang || page.language || config.language;
         const columnCount = Widgets.getColumnCount(config.widgets);
         const hasComment = comment !== undefined && comment.type !== undefined && (comment.type === 'gitalk' || comment.type === 'valine')
-            && (comment.has_hot_recommend || comment.has_latest_comment);
+            && (comment.has_hot_recommended || comment.has_latest_comments);
         let appKey,
             appId,
             userName,
@@ -110,8 +110,8 @@ module.exports = class extends Component {
 
         if (comment === undefined || comment.type === undefined
             || comment.type !== 'gitalk'
-            || comment.has_hot_recommend === undefined
-            || !comment.has_hot_recommend) {
+            || comment.has_hot_recommended === undefined
+            || !comment.has_hot_recommended) {
             hotRecommendStr = '';
         }
 
