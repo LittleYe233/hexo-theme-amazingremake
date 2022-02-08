@@ -89,7 +89,7 @@ class Profile extends Component {
                     <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="noopener">{followTitle}</a>
                 </div> : null}
                 {socialLinks ? this.renderSocialLinks(socialLinks) : null}
-                {hasHitokoto == undefined || hasHitokoto ? <div>
+                {hasHitokoto === undefined || hasHitokoto ? <div>
                     <hr />
                     <p id="hitokoto">:D 一言句子获取中...</p>
                     <script type="text/javascript" dangerouslySetInnerHTML={{ __html: hitokotoJs }} defer={true}></script>

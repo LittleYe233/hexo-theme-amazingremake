@@ -4,7 +4,7 @@ const crypto = require('crypto');
  * some global method
  */
 module.exports = function(hexo) {
-    // 获取路劲中最后一个字符串，针对于后面调整分类和链接格式时，id不受影响
+    // 获取路径中最后一个字符串，针对于后面调整分类和链接格式时，id不受影响
     hexo.extend.helper.register('_get_path_end_str', (path, unique, title) => {
 
         // 原格式 2020-02-06 02:29:04/"test1".html -> 20200206022904/test1.html

@@ -62,9 +62,9 @@ class Footer extends Component {
                         <p class="size-small">
                             <span dangerouslySetInnerHTML={{ __html: `&copy; ${siteYear} ${author || siteTitle}` }}></span>
                             &nbsp;&nbsp;Powered by <a href="https://hexo.io/" target="_blank" rel="noreferrer">Hexo</a> & <a
-                                href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noreferrer">Icarus</a> & <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank" rel="noreferrer">Amazing</a>&nbsp;
+                                href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noreferrer">Icarus</a> & <a href="https://github.com/LittleYe233/hexo-theme-amazingremake" target="_blank" rel="noreferrer">Amazing-Remake</a>&nbsp;
                             <br />
-                            {registeredNo ? <span>&copy; <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noreferrer">{registeredNo}</a><br /></span> : null}
+                            {registeredNo ? <span>&copy; <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">{registeredNo}</a><br /></span> : null}
                             {footerCopyrightDsec ? <span dangerouslySetInnerHTML={{ __html: footerCopyrightDsec }}></span> : null}
                             {websiteStartTime ? <span>
                                 <span id="statistic-times">loading...</span>
