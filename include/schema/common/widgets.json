@@ -45,6 +45,9 @@
             },
             {
                 "$ref": "/widget/recommend_post.json"
+            },
+            {
+                "$ref": "/widget/follow_it.json"
             }
         ],
         "required": [
