@@ -17,7 +17,7 @@ module.exports = class extends Component {
         const isMath = page.mathJax !== undefined && page.mathJax;
         const language = page.lang || page.language || config.language;
         const columnCount = Widgets.getColumnCount(config.widgets);
-        const hasComment = comment !== undefined && comment.type !== undefined && (comment.type === 'gitalk' || comment.type === 'valine')
+        const hasComment = comment !== undefined && comment.enabled !== undefined && comment.enabled === true && comment.type !== undefined && (comment.type === 'gitalk' || comment.type === 'valine')
             && (comment.has_hot_recommended || comment.has_latest_comments);
         let appKey,
             appId,
@@ -108,7 +108,7 @@ module.exports = class extends Component {
             }
         });`;
 
-        if (comment === undefined || comment.type === undefined
+        if (!hasComment
             || comment.type !== 'gitalk'
             || comment.has_hot_recommended === undefined
             || !comment.has_hot_recommended) {

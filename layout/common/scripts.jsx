@@ -7,7 +7,7 @@ module.exports = class extends Component {
         const { url_for, cdn, my_cdn } = helper;
         const { external_link, article, comment, has_banner } = config;
         const language = page.lang || page.language || config.language || 'en';
-        const hasComment = comment !== undefined && comment.type !== undefined && (comment.type === 'gitalk' || comment.type === 'valine');
+        const hasComment = comment !== undefined && comment.enabled !== undefined && comment.enabled === true && comment.type !== undefined && (comment.type === 'gitalk' || comment.type === 'valine');
         let hasHotRecommend = false;
         const hasBanner = has_banner !== undefined && has_banner;
         let appKey,
@@ -16,14 +16,14 @@ module.exports = class extends Component {
             userRepo,
             isValine;
 
-        if (comment !== undefined && comment.type !== undefined && comment.type === 'gitalk') {
+        if (hasComment && comment.type === 'gitalk') {
             hasHotRecommend = comment.has_hot_recommended !== undefined && comment.has_hot_recommended;
             appId = comment.client_id;
             appKey = comment.client_secret;
             userName = comment.owner;
             userRepo = comment.repo;
             isValine = false;
-        } else if (comment !== undefined && comment.type !== undefined && comment.type === 'valine') {
+        } else if (hasComment && comment.type === 'valine') {
             appId = comment.app_id;
             appKey = comment.app_key;
             userName = comment.owner;
