@@ -1,8 +1,42 @@
-# 更新日志
+# Amazing-Remake - 更新日志和发布说明
 
 本文件的格式基于 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 。
 
 考虑到一些版本控制系统可能会依照惯例读取本文件的一些区块 (section) ，文件的部分标识 (如“Unreleased”) 仍使用英文。
+
+## [1.0.0] - 2022-02-06
+
+此为本主题的第一个正式版。代码有较大改动。
+
+### Dependency-related
+
+- [[bab4599](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/bab459987ca05fa6123cd57af94d43bf3b271740)] **(BREAKING CHANGE)** 升级 Node 和依赖包。
+
+### Changed
+
+- [[2e4ccc0](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/2e4ccc071a42159af515d02d0d1fc58976ee38ee) [05137b0](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/05137b074d09dc9799c1a6fde1a7c1ab9c3d1049) [84d3f3a](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/84d3f3a3d145f44f5b72ba2ac457f155774c5ff7)] 重写主题配置文件，修改注释，统一化代码风格；
+- [[670220c](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/670220c12eb2df87d4af6046f4058be1d8abe469)] 增加 JSON Schema 对挂件配置项的进一步支持；
+- [[5ab43e0](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/5ab43e0c3e0ea40864330a7cd8439237cdec3a2b) [2acb7cf](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/2acb7cf3aa25c6d84453515be90ded6ee5e570bb)] 优化代码，修改底栏链接；
+- [[d6968ee](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/d6968ee31d58d7a5896b1d4c430bed312d1bc464)] 更新完善文档，重建文档结构。
+
+### Removed
+
+- [[530fe36](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/530fe3613ba94240867ea115c94246bb0ac8c9db)] 移除 Google AdSense 插件残留文件。
+
+### Deprecated
+
+- [[84d3f3a](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/84d3f3a3d145f44f5b72ba2ac457f155774c5ff7)] 部分配置项将会被移动至其他位置。
+  - `search` -> `plugins.search` ；
+  - `comment` -> `plugins.comment` ；
+  - `donates` -> `plugins.donates` ；
+  - `share` -> `plugins.share` ；
+  - `footer_copyright_dsec` -> `footer.copyright` ；
+  - `website_start_time` -> `website_start_time` ；
+  - `footer_registered_no` -> `icp_licensing_no` ；
+  - `side_music_netease_id` -> `plugins.side_netease_music` ；
+  - `busuanzi_only_count` -> `plugins.busuanzi.only_count` 。
+  
+  部分新配置项尚未实现，请保持为空。具体改动以实际提交为准。
 
 ## [0.4.0] - 2022-02-06
 
@@ -12,7 +46,7 @@
 
 ### Removed
 
-- [[b34d0e9](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/b34d0e9713e813ea8a9e6022c841aa542efd2ae8)] 移除 Google AdSense 组件。
+- [[b34d0e9](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/b34d0e9713e813ea8a9e6022c841aa542efd2ae8)] 移除 Google AdSense 插件。
 
 ### Changed
 
@@ -31,6 +65,10 @@
 - [[312cb3e](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/312cb3eab431abefc73d1b91e384fbd62e51f0c8)] 更新文档；
 - [[44674f8](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/44674f8832b5e8d68aa36a060f4167201e98ad40)] 修正 NPM 包描述；
 - [[4bf3fdf](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/4bf3fdf32f484f39214894f533253d9a19f3ef24)] 修改英文翻译。
+
+### Deprecated
+
+- 将移除 Google AdSense 组件。
 
 ## [0.2.1] - 2022-02-02
 
