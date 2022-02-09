@@ -95,7 +95,7 @@ navbar:
   links:
     Download on GitHub:
       icon: fab fa-github
-      url: 'https://github.com/LittleYe233/hexo-theme-amazingremake'
+      url: https://github.com/LittleYe233/hexo-theme-amazingremake
 
 # Page footer configurations
 footer:
@@ -103,13 +103,27 @@ footer:
   links:
     Creative Commons:
       icon: fab fa-creative-commons
-      url: 'https://creativecommons.org/'
+      url: https://creativecommons.org/
     Attribution 4.0 International:
       icon: fab fa-creative-commons-by
-      url: 'https://creativecommons.org/licenses/by/4.0/'
+      url: https://creativecommons.org/licenses/by/4.0/
     Download on GitHub:
       icon: fab fa-github
-      url: 'https://github.com/LittleYe233/hexo-theme-amazingremake'
+      url: https://github.com/LittleYe233/hexo-theme-amazingremake
+
+  # HTML code of copyright information in footer
+  copyright: © 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br />
+
+  # Start time of this website in footer (omitted to be invisible)
+  # NOTE: The value will be passed in the constructor of the ``Date``
+  # object. Read the documentation on Date() constructor
+  # (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/ Global_Objects/Date/Date) for further information.
+  # Recommended form: yyyy/mm/dd hh:mm:ss or yyyy-mm-ddThh:mm:ss
+  # i.e. 1995/12/17 13:24:00 or 1995-12-17T13:24:00
+  website_start_time: ''
+
+  # ICP licensing number in footer
+  icp_licensing_no: ''
 
 # Article related configurations
 article:
@@ -131,76 +145,13 @@ article:
   licenses:
     Creative Commons:
       icon: fab fa-creative-commons
-      url: 'https://creativecommons.org/'
+      url: https://creativecommons.org/
     Attribution:
       icon: fab fa-creative-commons-by
-      url: 'https://creativecommons.org/licenses/by/4.0/'
+      url: https://creativecommons.org/licenses/by/4.0/
     Noncommercial:
       icon: fab fa-creative-commons-nc
-      url: 'https://creativecommons.org/licenses/by-nc/4.0/'
-
-# Search plugin configurations
-# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Search/
-search:
-  type: insight
-
-# Comment plugin configurations
-# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
-comment:
-  enabled: false
-  type: gitalk                  # Recommended: gitalk
-  language: zh-CN               # Localization language key, en, zh-CN and zh-TW are currently available.
-  owner: ''                     # (required) GitHub user name
-  repo: ''                      # (required) GitHub repository name
-  client_id: ''                 # (required) OAuth application client id
-  client_secret: ''             # (required) OAuth application client secret
-  admin: ['']
-  create_issue_manually: true
-  distraction_free_mode: false
-  has_hot_recommended: true     # Whether to show Hot Recommended
-  has_latest_comments: true     # Whether to show Latest Comments
-  proxy: ''                     # Solve HTTP 403 error after logged in
-
-# Donate plugin configurations
-# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
-donates:
-  enabled: false
-  entries:
-    # Alipay donate button configurations
-    -
-      type: alipay
-      # Qrcode image URL
-      qrcode: ''
-    # WeChat donate button configurations
-    -
-      type: wechat
-      # Qrcode image URL
-      qrcode: ''
-    # "Buy me a coffee" donate button configurations
-    -
-      type: buymeacoffee
-      # URL to the "Buy me a coffee" page
-      url: ''
-    # Patreon donate button configurations
-    -
-      type: patreon
-      # URL to the Patreon page
-      url: ''
-    # Paypal donate button configurations
-    -
-      type: paypal
-      # Paypal business ID or email address
-      business: ''
-      # Currency code
-      currency_code: ''
-
-# Share plugin configurations
-# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
-share:
-  enabled: false
-  type: sharethis
-  # URL to the ShareThis share plugin script
-  install_url: ''
+      url: https://creativecommons.org/licenses/by-nc/4.0/
 
 # Sidebar configurations.
 # Please be noted that a sidebar is only visible when it has at least one widget
@@ -271,7 +222,7 @@ widgets:
     type: links
     # Names and URLs of the sites
     links:
-      Hexo: 'https://hexo.io'
+      Hexo: https://hexo.io
 
   # Latest comment widget configurations
   -
@@ -312,6 +263,18 @@ widgets:
     description: 
     # Feedburner ID
     feedburner_id: ''
+
+  # follow.it subscription widget configurations
+  -
+    # Where should the widget be placed, left sidebar or right sidebar
+    position: right
+    type: followit
+    # Hint text under the email input
+    description: ''
+    # Provided by follow.it
+    action_url: ''
+    # Provided by follow.it
+    verification_code: ''
 
 # Plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/
@@ -359,8 +322,73 @@ plugins:
   # Show a progress bar at top of the page on page loading
   progressbar: true
 
+# NOTE: Deprecated!
+# Search plugin configurations
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Search/
+search:
+  type: insight
+
+# NOTE: Deprecated!
+# Comment plugin configurations
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
+comment:
+  enabled: false
+  type: gitalk                  # Recommended: gitalk
+  language: zh-CN               # Localization language key, en, zh-CN and zh-TW are currently available.
+  owner: ''                     # (required) GitHub user name
+  repo: ''                      # (required) GitHub repository name
+  client_id: ''                 # (required) OAuth application client id
+  client_secret: ''             # (required) OAuth application client secret
+  admin: ['']
+  create_issue_manually: true
+  distraction_free_mode: false
+  has_hot_recommended: true     # Whether to show Hot Recommended
+  has_latest_comments: true     # Whether to show Latest Comments
+  proxy: ''                     # Solve HTTP 403 error after logged in
+
+# Donate plugin configurations
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
+donates:
+  enabled: false
+  entries:
+    # Alipay donate button configurations
+    -
+      type: alipay
+      # Qrcode image URL
+      qrcode: ''
+    # WeChat donate button configurations
+    -
+      type: wechat
+      # Qrcode image URL
+      qrcode: ''
+    # "Buy me a coffee" donate button configurations
+    -
+      type: buymeacoffee
+      # URL to the "Buy me a coffee" page
+      url: ''
+    # Patreon donate button configurations
+    -
+      type: patreon
+      # URL to the Patreon page
+      url: ''
+    # Paypal donate button configurations
+    -
+      type: paypal
+      # Paypal business ID or email address
+      business: ''
+      # Currency code
+      currency_code: ''
+
+# Share plugin configurations
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
+share:
+  enabled: false
+  type: sharethis
+  # URL to the ShareThis share plugin script
+  install_url: ''
+
 # CDN provider settings
-# https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/
+# https://ppoffice.github.io/hexo-theme-icarus/Configuration/icarus-user-guide-cdn-providers/
 providers:
   # Name or URL template of the JavaScript and/or stylesheet CDN provider
   cdn: loli
@@ -371,8 +399,11 @@ providers:
   # URL prefix of assets from CDN
   # my_cdn_pre: https://cdn.jsdelivr.net/gh/removeif/removeif-demo@v1.0.8/
 
+# NOTE: Deprecated!
 # HTML code of copyright information in footer
 footer_copyright_dsec: '© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br />'
+
+# NOTE: Deprecated!
 # Start time of this website in footer (omitted to be invisible)
 # NOTE: The value will be passed in the constructor of the ``Date``
 # object. Read the documentation on Date() constructor
@@ -380,14 +411,22 @@ footer_copyright_dsec: '© 版权说明：[本网站所有内容均收集于互�
 # Recommended form: yyyy/mm/dd hh:mm:ss or yyyy-mm-ddThh:mm:ss
 # i.e. 1995/12/17 13:24:00 or 1995-12-17T13:24:00
 website_start_time: ''
+
+# NOTE: Deprecated!
 # ICP licensing number in footer
 footer_registered_no: ''
+
+# NOTE: Deprecated!
 # NetEase Cloud Music playlist ID in footer (at the bottom of the webpage)
 side_music_netease_id: ''
+
+# NOTE: Deprecated!
 # (required: plugins.busuanzi: true) only calculate the statistics
 # from busuanzi without showing it when the value is true
 busuanzi_only_count: false
+
 # Whether to show the Live2D figure
 has_live_2D_switch: true
+
 # Whether to activate pjax plugin
 use_pjax: true
