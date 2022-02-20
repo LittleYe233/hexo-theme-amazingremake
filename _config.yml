@@ -122,8 +122,11 @@ footer:
   # i.e. 1995/12/17 13:24:00 or 1995-12-17T13:24:00
   website_start_time: ''
 
-  # ICP licensing number in footer
-  icp_licensing_no: ''
+  # ICP licensing information in footer
+  icp_licensing:
+    enabled: false
+    number: ''
+    url: 'https://beian.miit.gov.cn/'
 
 # Article related configurations
 article:
@@ -411,10 +414,6 @@ footer_copyright_dsec: '© 版权说明：[本网站所有内容均收集于互�
 # Recommended form: yyyy/mm/dd hh:mm:ss or yyyy-mm-ddThh:mm:ss
 # i.e. 1995/12/17 13:24:00 or 1995-12-17T13:24:00
 website_start_time: ''
-
-# NOTE: Deprecated!
-# ICP licensing number in footer
-footer_registered_no: ''
 
 # NOTE: Deprecated!
 # NetEase Cloud Music playlist ID in footer (at the bottom of the webpage)

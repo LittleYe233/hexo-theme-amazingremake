@@ -19,6 +19,7 @@ class Footer extends Component {
             websiteStartTime,
             footerCopyrightDsec,
             registeredNo,
+            registeredUrl,
             footerWebsiteTime
         } = this.props;
 
@@ -64,7 +65,7 @@ class Footer extends Component {
                             &nbsp;&nbsp;Powered by <a href="https://hexo.io/" target="_blank" rel="noreferrer">Hexo</a> & <a
                                 href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noreferrer">Icarus</a> & <a href="https://github.com/LittleYe233/hexo-theme-amazingremake" target="_blank" rel="noreferrer">Amazing-Remake</a>&nbsp;
                             <br />
-                            {registeredNo ? <span>&copy; <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">{registeredNo}</a><br /></span> : null}
+                            {registeredNo ? <span>&copy; {registeredUrl ? <a href={registeredUrl} target="_blank" rel="noreferrer">{registeredNo}</a> : <span>{registeredNo}</span>}<br /></span> : null}
                             {footerCopyrightDsec ? <span dangerouslySetInnerHTML={{ __html: footerCopyrightDsec }}></span> : null}
                             {websiteStartTime ? <span>
                                 <span id="statistic-times">loading...</span>
@@ -115,7 +116,7 @@ class Footer extends Component {
 module.exports = cacheComponent(Footer, 'common.footer', props => {
     const { config, helper } = props;
     const { url_for, _p, date, my_cdn, __ } = helper;
-    const { logo, title, author, footer, plugins, side_music_netease_id, website_start_time, footer_copyright_dsec, footer_registered_no, busuanzi_only_count, footer_website_time } = config;
+    const { logo, title, author, footer, plugins, side_music_netease_id, website_start_time, footer_copyright_dsec, busuanzi_only_count, footer_website_time } = config;
 
     const links = {};
     if (footer && footer.links) {
@@ -127,12 +128,18 @@ module.exports = cacheComponent(Footer, 'common.footer', props => {
             };
         });
     }
+    let icp_licensing_no, icp_licensing_url;
+    if (footer && footer.icp_licensing && footer.icp_licensing.enabled === true) {
+        icp_licensing_no = footer.icp_licensing.number;
+        icp_licensing_url = footer.icp_licensing.url;
+    }
 
     return {
         url_for: url_for,
         websiteStartTime: website_start_time,
         footerCopyrightDsec: footer_copyright_dsec,
-        registeredNo: footer_registered_no,
+        registeredNo: icp_licensing_no,
+        registeredUrl: icp_licensing_url,
         my_cdn: my_cdn,
         logo,
         logoUrl: url_for(logo),
