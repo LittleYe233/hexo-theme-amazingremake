@@ -4,7 +4,19 @@
 
 考虑到一些版本控制系统可能会依照惯例读取本文件的一些区块 (section) ，文件的部分标识 (如“Unreleased”) 仍使用英文。
 
-## [1.0.0] - 2022-02-06
+## [1.1.0] - 2022-02-20
+
+### Changed
+
+- [[5a5e6b9](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/5a5e6b94d81d192dbcec22df2694b02c359593d4)] 重设 `footer_registered_no` 配置项位置并增加跳转地址配置项；
+- [[b0a7cbf](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/b0a7cbf374baba7e9555a4371063eaca0debe02e)] 重设 `footer_copyright_dsec` 配置项位置；
+- [[dfb1c62](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/dfb1c6294ed9c65bca6a0bd9b5b304ec14f6f94a)] 重设 `website_start_time` 配置项位置。
+
+### Fixed
+
+- [[ce8dd60](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/ce8dd60f85e2e512e634759b56c30f8cf7b7bed0)] 修复禁用评论后主页热门推荐仍存在的问题。
+
+## [1.0.0] - 2022-02-09
 
 此为本主题的第一个正式版。代码有较大改动。
 
@@ -30,9 +42,9 @@
   - `comment` -> `plugins.comment` ；
   - `donates` -> `plugins.donates` ；
   - `share` -> `plugins.share` ；
-  - `footer_copyright_dsec` -> `footer.copyright` ；
-  - `website_start_time` -> `website_start_time` ；
-  - `footer_registered_no` -> `icp_licensing_no` ；
+  - [[b0a7cbf](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/b0a7cbf374baba7e9555a4371063eaca0debe02e)] `footer_copyright_dsec` -> `footer.copyright` ；
+  - [[dfb1c62](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/dfb1c6294ed9c65bca6a0bd9b5b304ec14f6f94a)] `website_start_time` -> `footer.website_start_time` ；
+  - [[5a5e6b9](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/5a5e6b94d81d192dbcec22df2694b02c359593d4)] `footer_registered_no` -> `footer.icp_licensing_no` ；
   - `side_music_netease_id` -> `plugins.side_netease_music` ；
   - `busuanzi_only_count` -> `plugins.busuanzi.only_count` 。
   
