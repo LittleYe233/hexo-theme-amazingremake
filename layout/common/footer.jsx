@@ -116,7 +116,7 @@ class Footer extends Component {
 module.exports = cacheComponent(Footer, 'common.footer', props => {
     const { config, helper } = props;
     const { url_for, _p, date, my_cdn, __ } = helper;
-    const { logo, title, author, footer, plugins, side_music_netease_id, website_start_time, busuanzi_only_count, footer_website_time } = config;
+    const { logo, title, author, footer, plugins, side_music_netease_id, busuanzi_only_count } = config;
 
     const links = {};
     if (footer && footer.links) {
@@ -128,7 +128,10 @@ module.exports = cacheComponent(Footer, 'common.footer', props => {
             };
         });
     }
-    let icp_licensing_no, icp_licensing_url, footer_copyright_dsec;
+    let icp_licensing_no, icp_licensing_url, footer_copyright_dsec, website_start_time;
+    if (footer && footer.website_start_time) {
+        website_start_time = footer.website_start_time;
+    }
     if (footer && footer.icp_licensing && footer.icp_licensing.enabled === true) {
         icp_licensing_no = footer.icp_licensing.number;
         icp_licensing_url = footer.icp_licensing.url;

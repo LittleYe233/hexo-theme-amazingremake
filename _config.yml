@@ -403,15 +403,6 @@ providers:
   # my_cdn_pre: https://cdn.jsdelivr.net/gh/removeif/removeif-demo@v1.0.8/
 
 # NOTE: Deprecated!
-# Start time of this website in footer (omitted to be invisible)
-# NOTE: The value will be passed in the constructor of the ``Date``
-# object. Read the documentation on Date() constructor
-# (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date) for further information.
-# Recommended form: yyyy/mm/dd hh:mm:ss or yyyy-mm-ddThh:mm:ss
-# i.e. 1995/12/17 13:24:00 or 1995-12-17T13:24:00
-website_start_time: ''
-
-# NOTE: Deprecated!
 # NetEase Cloud Music playlist ID in footer (at the bottom of the webpage)
 side_music_netease_id: ''
 
