@@ -1,3 +1,13 @@
+##########################################################
+#  Default configurations of amazingremake
+#
+#  IT'S NOT RECOMMENDED TO EDIT THIS FILE!
+#
+#  For developers:
+#  Some elements are provided by hexo-component-inferno.
+#  You can check the source code of this module.
+##########################################################
+
 # Version of the configuration file
 version: 4.0.0
 
@@ -256,16 +266,6 @@ widgets:
     # Where should the widget be placed, left sidebar or right sidebar
     position: right
     type: tags
-
-  # Google FeedBurner email subscription widget configurations
-  -
-    # Where should the widget be placed, left sidebar or right sidebar
-    position: right
-    type: subscribe_email
-    # Hint text under the email input
-    description: 
-    # Feedburner ID
-    feedburner_id: ''
 
   # follow.it subscription widget configurations
   -
