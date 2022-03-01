@@ -144,11 +144,24 @@ function loadMainJs($, moment, ClipboardJS, config) {
 
 // eslint-disable-next-line no-unused-vars
 function loadMathJax() { // 加载mathjax
-    $.getScript('//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML', () => {
-        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] } });
-        const math = document.getElementsByClassName('entry-content')[0];
-        MathJax.Hub.Queue(['Typeset', MathJax.Hub, math]);
-    });
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$']],
+            autoload: {
+                color: [],
+                colorv2: ['color']
+            },
+            packages: {'[+]': ['noerrors']}
+        },
+        options: {
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        loader: {
+            load: ['input/asciimath', '[tex]/noerrors']
+        }
+    };
+    $.getScript('//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js');
 }
 
 $(document).ready(() => {
