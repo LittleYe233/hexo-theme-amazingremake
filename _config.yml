@@ -313,7 +313,7 @@ plugins:
   hotjar:
     # Hotjar site id
     site_id: 
-  # Enable the KaTeX math typesetting supprot
+  # Enable the KaTeX math typesetting support
   # https://katex.org/
   katex: false
   # Enable the MathJax math typesetting support
