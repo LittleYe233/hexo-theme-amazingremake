@@ -189,6 +189,11 @@ widgets:
     type: toc
     # Select show index
     index: false
+    # Showing mode
+    # Available values:
+    # - 'pages_and_posts' (shown in pages and posts like that in the old version)
+    # - 'default' (not shown in pages and posts)
+    show_mode: pages_and_posts
 
   # Profile widget configurations
   -
@@ -227,6 +232,7 @@ widgets:
       #   icon: fas fa-rss
       #   url: 
     has_hitokoto: true
+    show_mode: default
 
   # Recommendation links widget configurations
   -
@@ -236,36 +242,42 @@ widgets:
     # Names and URLs of the sites
     links:
       Hexo: https://hexo.io
+    show_mode: default
 
   # Latest comment widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
     position: right
     type: latest_comment
+    show_mode: default
 
   # Recent posts widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
     position: right
     type: recent_posts
+    show_mode: default
 
   # Categories widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
     position: right
     type: categories
+    show_mode: default
 
   # Archives widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
     position: right
     type: archives
+    show_mode: default
 
   # Tags widget configurations
   -
     # Where should the widget be placed, left sidebar or right sidebar
     position: right
     type: tags
+    show_mode: default
 
   # follow.it subscription widget configurations
   -
@@ -278,6 +290,7 @@ widgets:
     action_url: ''
     # Provided by follow.it
     verification_code: ''
+    show_mode: default
 
 # Plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/

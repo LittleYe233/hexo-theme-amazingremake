@@ -43,7 +43,8 @@ function formatAllWidgets(widgets) {
     const result = {};
     if (Array.isArray(widgets)) {
         widgets.filter(widget => typeof widget === 'object').forEach(widget => {
-            if ('position' in widget && (widget.position === 'left' || widget.position === 'right')) {
+            if ('position' in widget && (widget.position === 'left' || widget.position === 'right') && widget.show_mode === 'pages_and_posts') {
+            // We assume that the page layout is `page` or `post`.
                 const widgetNew = clone(widget);
                 if (widgetNew.position === 'right') {
                     widgetNew.position = 'left';
@@ -100,7 +101,8 @@ function isColumnSticky(config, position) {
 class Widgets extends Component {
     render() {
         const { site, config, helper, page, position } = this.props;
-        const widgets = page.layout === 'post' || page.layout === 'page' ? formatAllWidgets(config.widgets)[position] || [] : formatWidgets(config.widgets)[position] || [];
+        const isPageOrPost = page.layout === 'post' || page.layout === 'page';
+        const widgets = isPageOrPost ? formatAllWidgets(config.widgets, isPageOrPost)[position] || [] : formatWidgets(config.widgets)[position] || [];
         const columnCount = getColumnCount(config.widgets);
 
         if (!widgets.length) {
