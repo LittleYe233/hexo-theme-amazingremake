@@ -23,6 +23,7 @@ widget:
     catalogue: '文章目錄'
     subscribe_email: '訂閱 Email'
     subscribe: '訂閱'
+    followit: 'Follow.it'
 article:
     created_at: '%s發表'
     updated_at: '%s更新'

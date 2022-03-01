@@ -23,6 +23,7 @@ widget:
     catalogue: 'Catalogue'
     subscribe_email: 'Subscribe for updates'
     subscribe: 'Subscribe'
+    followit: 'Follow.it'
     recommend_posts: 'Recommend Posts'
     related_posts: 'Related Posts'
     latest_comment: 'Latest Comments'

@@ -24,6 +24,7 @@ widget:
     catalogue: 'Catálogo'
     subscribe_email: 'Suscríbete para recibir actualizaciones'
     subscribe: 'Suscribir'
+    followit: 'Follow.it'
 article:
     created_at: 'Publicado hace&nbsp;%s'
     updated_at: 'Actualizado hace&nbsp;%s'

@@ -23,6 +23,7 @@ widget:
     catalogue: 'Spis treści'
     subscribe_email: 'Zapisz się, aby otrzymywać aktualizacje'
     subscribe: 'Subskrybuj'
+    followit: 'Follow.it'
 article:
     created_at: 'Opublikowano&nbsp;%s'
     updated_at: 'Zaktualizowano&nbsp;%s'
