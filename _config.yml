@@ -328,7 +328,8 @@ plugins:
     site_id: 
   # Enable the KaTeX math typesetting support
   # https://katex.org/
-  katex: false
+  # WARNING: IT NEEDS MORE MAINTENANCE!
+  # katex: false
   # Enable the MathJax math typesetting support
   # https://www.mathjax.org/
   mathjax: false

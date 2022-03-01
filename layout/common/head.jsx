@@ -51,6 +51,7 @@ module.exports = class extends Component {
             favicon
         } = head;
 
+        const isKatex = page.katex !== undefined ? page.katex === true : config.plugins !== undefined && config.plugins.katex === true;
         const language = page.lang || page.language || config.language;
         const fontCssUrl = {
             default: fontcdn('Ubuntu:wght@400;600&family=Source+Code+Pro', 'css2'),
@@ -160,6 +161,9 @@ module.exports = class extends Component {
             {/* icon*/}
             <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"/>
             <link rel="stylesheet" href={fontcdn('Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css')} />
+            {isKatex ? <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous" /> : null}
+            {isKatex ? <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script> : null}
+            {isKatex ? <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script> : null}
             {globalGray ? <link rel="stylesheet" href={url_for('/css/global_gray.css')} /> : null}
             <script src={cdn('jquery', '3.3.1', 'dist/jquery.min.js')}></script>
             <script src={my_cdn(url_for('/js/globalUtils.js'))}></script>

@@ -13,17 +13,20 @@ module.exports = class extends Component {
         const { comment, use_pjax, has_banner } = config;
         const { __, my_cdn, url_for } = helper;
 
-        // 默认不加载公式，文中头部开启mathJax:true才加载
-        const isMath = page.mathJax !== undefined && page.mathJax;
+        // The setting from the page front matter is prior to that in the configuration file.
+        // If MathJax and KaTeX are both selected to use, KaTeX is prior to MathJax.
+        const isMath = page.mathJax !== undefined ? page.mathJax === true : config.plugins !== undefined && config.plugins.mathJax === true;
+        const isKatex = page.katex !== undefined ? page.katex === true : config.plugins !== undefined && config.plugins.katex === true;
+        let mathRenderer, appKey, appId, userName, userRepo, isValine;
+        if (isKatex) {
+            mathRenderer = 'katex';
+        } else {
+            mathRenderer = isMath ? 'mathjax' : undefined;
+        }
         const language = page.lang || page.language || config.language;
         const columnCount = Widgets.getColumnCount(config.widgets);
         const hasComment = comment !== undefined && comment.enabled !== undefined && comment.enabled === true && comment.type !== undefined && (comment.type === 'gitalk' || comment.type === 'valine')
             && (comment.has_hot_recommended || comment.has_latest_comments);
-        let appKey,
-            appId,
-            userName,
-            userRepo,
-            isValine;
 
         if (comment !== undefined && comment.type !== undefined && comment.type === 'gitalk') {
             appId = comment.client_id;
@@ -56,7 +59,6 @@ module.exports = class extends Component {
             </div>
         </div>`;
 
-        // mathjax support 使用方法 md文章头部开启mathJax: true，md文章中公式格式：$$f(x) = a_1x^n + a_2x^{n-1} + a_3x^{n-2}$$
         const mathJaxJs = `function loadMathJax() { //加载mathjax
             $.getScript("//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML", function () {
                 MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] } });
@@ -97,7 +99,7 @@ module.exports = class extends Component {
             if(${hasComment}){
                 $.getScript('${my_cdn(url_for('/js/comment-issue-data.js'))}',function(){loadIssueData('${appId}','${appKey}','${userName}','${userRepo}',${isValine});});
             }
-            if(${isMath}){
+            if(${mathRenderer} === 'mathjax'){
                 loadMathJax();
             }
             loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
@@ -154,7 +156,7 @@ module.exports = class extends Component {
                 <Search config={config} helper={helper} />
                 {use_pjax ? <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> : null}
                 {use_pjax ? <script type="text/javascript" dangerouslySetInnerHTML={{ __html: pjaxJs }}></script> : null}
-                {isMath ? <script type="text/javascript" dangerouslySetInnerHTML={{ __html: mathJaxJs }}></script> : null}
+                {mathRenderer === 'mathjax' ? <script type="text/javascript" dangerouslySetInnerHTML={{ __html: mathJaxJs }}></script> : null}
             </body>
         </html>;
     }
