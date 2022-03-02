@@ -2,7 +2,13 @@
 
 本文件的格式基于 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 。
 
-考虑到一些版本控制系统可能会依照惯例读取本文件的一些区块 (section) ，文件的部分标识 (如“Unreleased”) 仍使用英文。
+考虑到一些版本控制系统可能会依照惯例读取本文件的一些区块 (section) ，文件的部分标识 (如“Unreleased”) 仍使用英文。#
+
+## [1.2.1] - 2022-03-02
+
+### Fixed
+
+- [[071689f](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/071689f2379eee8b6f8e72bcf7854af8ceae5e5d)] 修复 follow.it 挂件验证码未被渲染的问题。
 
 ## [1.2.0] - 2022-03-02
 
