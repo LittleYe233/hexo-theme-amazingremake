@@ -39,7 +39,8 @@ module.exports = class extends Component {
             variant = 'default',
             has_live_2D_switch,
             global_gray,
-            comment
+            comment,
+            widgets
         } = config;
         const {
             meta = [],
@@ -57,6 +58,16 @@ module.exports = class extends Component {
             default: fontcdn('Ubuntu:wght@400;600&family=Source+Code+Pro', 'css2'),
             cyberpunk: fontcdn('Oxanium:wght@300;400;600&family=Roboto+Mono', 'css2')
         };
+        // It should be a string or other types or undefined.
+        const followitVerificationCode = (() => {
+            if (Array.isArray(widgets)) {
+                for (const widget of widgets) {
+                    if (widget.type === 'followit' && widget.verification_code !== undefined) {
+                        return widget.verification_code;
+                    }
+                }
+            }
+        })();
 
         let hlTheme, images;
         if (typeof article === 'undefined' || typeof article.highlight === 'undefined' || typeof article.highlight.enabled !== 'boolean' || article.highlight.enabled === false) {
@@ -174,6 +185,7 @@ module.exports = class extends Component {
             {isValineComment ? <script async="" referrerpolicy="no-referrer" src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script> : null}
             {isValineComment ? <script src="//unpkg.com/valine/dist/Valine.min.js"></script> : null}
             {isValineComment ? <script src={my_cdn(url_for('/js/md5.min.js'))}></script> : null}
+            {followitVerificationCode ? <meta name="follow.it-verification-code" content={followitVerificationCode} /> : null}
 
         </head>;
     }
