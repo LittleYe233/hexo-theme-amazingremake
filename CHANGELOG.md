@@ -4,6 +4,32 @@
 
 考虑到一些版本控制系统可能会依照惯例读取本文件的一些区块 (section) ，文件的部分标识 (如“Unreleased”) 仍使用英文。
 
+## [1.2.0] - 2022-03-02
+
+此处首次添加“Not Completed“部分，表示已经有对应提交但因其他原因未能实现预计功能。
+
+### Added
+
+- [[840da4a](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/840da4a0768dc94bc67ed2bda4781edafe62e7d7)] 添加 follow.it 挂件的翻译；
+- [[184fa48](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/184fa489f8b9b70fcda0d00c7a0d075c3c9ff9b3)] 配置文件挂件配置块添加 `show_mode` 配置项。
+
+### Changed
+
+- [[7fae5ac](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/7fae5ac55c2425e39b1d3a6daf01f64777b954b5)] 更改资料卡头像等 HTML 元素的悬浮动画；
+- [[28df88b](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/28df88b442d1f036ad0e0c3104547931eaa80022)] 升级 MathJax 版本至 v3 。
+
+### Removed
+
+- [[2cff4e0](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/2cff4e07fcdaccf60f80b5acefaac511779d6dc1)] 移除 MathJax 行内公式定界符“\\(”和“\\)”。
+
+### Deprecated
+
+- [[a000789](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/a0007896ce8bde27c90d6c94a72aad8d724c5ecf)] 移除 Google Feedburner 的配置项。
+
+### Not Completed
+
+- [[8cfcb5d](https://github.com/LittleYe233/hexo-theme-amazingremake/commit/8cfcb5d3c34e85db64c0a060cf427e00e59e34ea)] 试图恢复 KaTeX 支持。
+
 ## [1.1.0] - 2022-02-20
 
 ### Changed
