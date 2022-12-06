@@ -528,6 +528,8 @@ widgets:
     type: latest_comment
 ```
 
+**注意**：根据 [amazing 主题文档](https://github.com/removeif/hexo-theme-amazing#1%E7%83%AD%E9%97%A8%E6%8E%A8%E8%8D%90%E6%9C%80%E6%96%B0%E8%AF%84%E8%AE%BA)的说明，最新评论仅支持 Gitalk 和 Valine 评论插件。
+
 ### 最近投稿
 
 相关配置项如下：
@@ -608,6 +610,25 @@ widgets:
 ## 插件
 
 本主题的插件功能依赖于 Icarus 主题。有关插件的更多信息参见 [Icarus 用户指南 - 插件](https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/)。
+
+### 用户评论插件
+
+#### Twikoo
+
+相关配置项如下：
+
+```yml
+comment:
+  type: twikoo
+  # 环境 ID（可填写云函数 ID、Vercel 部署或自部署地址等，取决于 Twikoo 对该变量的实现）
+  env_id: <your env_id>
+  # （可选）设置语言
+  lang: zh-CN
+```
+
+详见 [Twikoo 文档](https://twikoo.js.org/quick-start.html#%E9%80%9A%E8%BF%87-cdn-%E5%BC%95%E5%85%A5)的配置项。需要注意，本主题仅实现了 `env_id`（即 Twikoo 初始化函数中的 `envId`）和 `lang` 属性值，其他属性值尚未实现。
+
+为方便起见，Twikoo 插件的版本固定为 [1.6.8](https://www.npmjs.com/package/twikoo/v/1.6.8)，并使用 jsDelivr CDN 分发 [JavaScript 源代码](https://cdn.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js)。部署时请选择合适的版本号，避免出现非预期错误。
 
 ## CDN
 
