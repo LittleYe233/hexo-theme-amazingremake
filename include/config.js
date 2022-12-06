@@ -12,7 +12,11 @@ const { yellow } = require('./util/console');
 function loadThemeConfig(hexo, cfgPaths) {
     const configs = cfgPaths.map(cfgPath => fs.readFileSync(cfgPath))
         .map(cfgPath => yaml.parse(cfgPath));
-    return Object.assign({}, ...configs, hexo.config.theme_config);
+    // console.dir(cfgPaths, { depth: null, colors: true });
+    // console.dir(configs, { depth: null, colors: true });
+    const cfg = Object.assign({}, ...configs, hexo.config.theme_config);
+    // console.dir(cfg, { depth: null, colors: true });
+    return cfg;
 }
 
 function generateThemeConfigFile(schema, cfgPath) {

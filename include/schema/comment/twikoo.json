@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "/comment/twikoo.json",
+    "description": "Twikoo comment plugin configurations\nhttps://ppoffice.github.io/hexo-theme-icarus/Plugins/Comment/icarus%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97-%E7%94%A8%E6%88%B7%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/#Twikoo\nhttps://twikoo.js.org/",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "const": "twikoo"
+        },
+        "envId": {
+            "type": "string"
+        },
+        "lang": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "type",
+        "envId"
+    ]
+}
