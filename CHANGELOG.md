@@ -4,6 +4,16 @@
 
 考虑到一些版本控制系统可能会依照惯例读取本文件的一些区块 (section) ，文件的部分标识 (如“Unreleased”) 仍使用英文。
 
+## [1.3.1] - 2022-12-6
+
+### Added
+
+- [[67b3eda]] 增加对 Twikoo 的配置说明和最新评论插件的注意事项。
+
+### Changed
+
+- [[4222261]] 将 Twikoo 配置项的 `envId` 改为 `env_id`。
+
 ## [1.3.0] - 2022-12-6
 
 ### Added
@@ -166,6 +176,8 @@
 
 - 更改开发环境配置。
 
+[67b3eda]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/67b3edae6f0cc02f4775265d8dcbaff83bc75316
+[4222261]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/4222261e01352c7f0834b2f9ce7c29dfe92185cc
 [76cf2e6]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/76cf2e69dc3929d05b2203a609171ae0f2a1ddac
 [416aa21]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/416aa21f82270d041f516fd6be5221caf7da7d5f
 [a43f7ec]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/a43f7ec7a0b86e803db8d64f9340d86fb7a3e486
@@ -207,6 +219,7 @@
 [86db4e7]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/86db4e7505decbc9748eab69a418faf3f3ce8087
 [436aef8]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/436aef8ccf13f554daf389387add56298fee0006
 
+[1.3.1]: https://github.com/LittleYe233/hexo-theme-amazingremake/releases/tag/v1.3.1
 [1.3.0]: https://github.com/LittleYe233/hexo-theme-amazingremake/releases/tag/v1.3.0
 [1.2.1]: https://github.com/LittleYe233/hexo-theme-amazingremake/releases/tag/v1.2.1
 [1.2.0]: https://github.com/LittleYe233/hexo-theme-amazingremake/releases/tag/v1.2.0
