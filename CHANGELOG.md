@@ -4,6 +4,20 @@
 
 考虑到一些版本控制系统可能会依照惯例读取本文件的一些区块 (section) ，文件的部分标识 (如“Unreleased”) 仍使用英文。
 
+## [1.3.0] - 2022-12-6
+
+### Added
+
+- [[76cf2e6]] 添加 Twikoo 评论插件系统支持。
+
+### Changed
+
+- [[a43f7ec]] 更改更新日志链接样式。
+
+### Fixed
+
+- [[416aa21]] 修复目录挂件超出页面的问题。([@NaughtyChas])
+
 ## [1.2.1] - 2022-03-02
 
 ### Fixed
@@ -152,6 +166,9 @@
 
 - 更改开发环境配置。
 
+[76cf2e6]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/76cf2e69dc3929d05b2203a609171ae0f2a1ddac
+[416aa21]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/416aa21f82270d041f516fd6be5221caf7da7d5f
+[a43f7ec]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/a43f7ec7a0b86e803db8d64f9340d86fb7a3e486
 [071689f]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/071689f2379eee8b6f8e72bcf7854af8ceae5e5d
 [840da4a]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/840da4a0768dc94bc67ed2bda4781edafe62e7d7
 [184fa48]: https://github.com/LittleYe233/hexo-theme-amazingremake/commit/184fa489f8b9b70fcda0d00c7a0d075c3c9ff9b3
@@ -200,6 +217,8 @@
 [0.2.1]: https://github.com/LittleYe233/hexo-theme-amazingremake/releases/tag/v0.2.1
 [0.2.0]: https://github.com/LittleYe233/hexo-theme-amazingremake/releases/tag/v0.2.0
 [0.1.0]: https://github.com/LittleYe233/hexo-theme-amazingremake/releases/tag/v0.1.0
+
+[@NaughtyChas]: https://github.com/NaughtyChas
 
 <!--
 Format:
