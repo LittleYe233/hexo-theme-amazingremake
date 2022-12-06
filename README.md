@@ -20,4 +20,6 @@
 
 ## 演示
 
-本主题的演示链接为[此](https://amazingremake-preview.imakiseki.cf) 。由于本演示站点系手动部署，更新可能有延迟。
+~~本主题的演示链接为[此](https://amazingremake-preview.imakiseki.cf) 。由于本演示站点系手动部署，更新可能有延迟。~~
+
+**（域名到期，演示站暂时关闭。）**
