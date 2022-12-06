@@ -8,7 +8,7 @@
             "type": "string",
             "const": "twikoo"
         },
-        "envId": {
+        "env_id": {
             "type": "string"
         },
         "lang": {
